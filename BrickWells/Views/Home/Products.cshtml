@@ -1,0 +1,16 @@
+@{
+    ViewData["Title"] = "Shop Products";
+}
+
+@model BrickListViewModel
+
+<h1>Browse Our Growing Catalog of Amazing Lego Sets</h1>
+
+@foreach(Product p in Model.Products)
+{
+    <partial name="ProductSummary" model="p" />
+}
+
+<div page-model="@Model.PaginationInfo" page-action="Products" page-classes-enabled="true"
+     page-class="btn" page-class-normal="btn-outline-dark" page-class-selected="btn-primary"
+     page-url-category="@Model.currentCategory" class="btn-group m-1"></div>
