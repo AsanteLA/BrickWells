@@ -13,6 +13,8 @@
     <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
         <div class="container-fluid">
             <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">BrickWells</a>
+            @* <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">BrickWells</a> *@
+            <img class="nav-logo" asp-area="" asp-controller="Home" asp-action="Index" src="/img/Lego_imgs/Brickwells_logo.png" alt="Brickwell logo">
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                     aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -25,26 +27,50 @@
                     <li class="nav-item">
                         <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="About">About</a>
+                    </li>
                 </ul>
                 <partial name="_LoginPartial"/>
             </div>
+            
         </div>
     </nav>
 </header>
-<div class="container">
+@* <div class="container"> *@
+<div>
     <main role="main" class="pb-3">
         @RenderBody()
     </main>
 </div>
 
-<footer class="border-top footer text-muted">
-    <div class="container">
-        &copy; 2024 - BrickWells - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-    </div>
-</footer>
 <script src="~/lib/jquery/dist/jquery.min.js"></script>
 <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 <script src="~/js/site.js" asp-append-version="true"></script>
 @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>
+<footer>
+        <div class="footer-columns">
+            <div class="footer-column left-column">
+                <img src="/img/Lego_imgs/Brickwells_logo.png" alt="Brickwell logo">
+                    <h3>Address</h3>
+                    <p>123 Main Street<br>City, State, Zip</p>
+                    </div>
+            <div class="footer-column middle-column">
+
+            </div>
+            <div class="footer-column middle-column">
+                <h3>Links</h3>
+                <a href="#">Home</a>
+                <a href="#">About</a>
+                <a href="#">Contact</a>
+            </div>
+            <div class="footer-column right-column">
+                <h3>External Links</h3>
+                <a href="#"><img src="icon1.png" alt="Icon 1"></a>
+                <a href="#"><img src="icon2.png" alt="Icon 2"></a>
+                <a href="#"><img src="icon3.png" alt="Icon 3"></a>
+            </div>
+        </div>
+    </footer>
