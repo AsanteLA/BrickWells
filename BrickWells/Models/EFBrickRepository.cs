@@ -1,10 +1,12 @@
+using BrickWells.Data;
+
 namespace BrickWells.Models;
 
 public class EFBrickRepository : IBrickRepository
 {
-    private BrickwellsContext _context;
+    private BrickContext _context;
     
-    public EFBrickRepository(BrickwellsContext temp)
+    public EFBrickRepository(BrickContext temp)
     {
         _context = temp;
     }
@@ -12,6 +14,6 @@ public class EFBrickRepository : IBrickRepository
     public IQueryable<Product> Products => _context.Products;
     public IQueryable<Customer> Customers => _context.Customers;
     public IQueryable<Order> Orders => _context.Orders;
-    public IQueryable<LineItem> OrderDetails => _context.LineItems;
+    //public IQueryable<LineItem> OrderDetails => _context.LineItems;
     
 }

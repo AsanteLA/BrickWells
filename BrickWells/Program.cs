@@ -11,6 +11,11 @@ var connectionString = builder.Configuration.GetConnectionString("DefaultConnect
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlite(connectionString));
 
+builder.Services.AddDbContext<BrickContext>(options =>
+{
+    options.UseSqlite(connectionString);
+});
+
 // builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
 
@@ -33,12 +38,10 @@ builder.Services.Configure<IdentityOptions>(options =>
     options.User.RequireUniqueEmail = true;
 });
 
-builder.Services.AddDbContext<BrickwellsContext>(options =>
-{
-    options.UseSqlite(builder.Configuration["ConnectionStrings:BrickConnection"]);
-});
+
 
 builder.Services.AddScoped<IBrickRepository, EFBrickRepository>();
+builder.Services.AddScoped<IOrderRepository, EFOrderRepository>();
 
 builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = false)
     .AddRoles<IdentityRole>()
@@ -55,6 +58,12 @@ builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.Requ
 builder.Services.AddControllersWithViews();
 
 builder.Services.AddRazorPages();
+
+builder.Services.AddDistributedMemoryCache();
+builder.Services.AddSession();
+
+builder.Services.AddScoped<Cart>(sp => SessionCart.GetCart(sp));
+builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 
 var app = builder.Build();
 
@@ -76,9 +85,11 @@ app.UseCookiePolicy();
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 
+app.UseSession();
 
 app.UseRouting();
 
+app.UseAuthorization();
 app.UseAuthorization();
 
 // app.UseEndpoints(endpoints =>
@@ -91,6 +102,7 @@ app.MapControllerRoute("pagenumandtype", "{category}/{pageNum}", new {Controller
 app.MapControllerRoute("pagination", "{pageNum}", new { Controller = "Home", action = "Products", pageNum = 1 });
 app.MapControllerRoute("projectType", "{category}", new { Controller = "Home", action = "Products", pageNum = 1 });
 app.MapDefaultControllerRoute();
+
 app.MapRazorPages();
 
 // Seed the user database with roles

@@ -7,14 +7,29 @@ namespace BrickWells.Controllers;
 [Authorize(Roles = "Admin")]
 public class AdminController : Controller
 {
-    private IBrickRepository _repo;
+    private IAdminRepository _repo;
     
-    public AdminController(IBrickRepository temp)
+    public AdminController(IAdminRepository temp)
     {
         _repo = temp;
     }
     
     public IActionResult Index()
+    {
+        return View();
+    }
+
+    public IActionResult ProductList()
+    {
+        return View();
+    }
+    
+    public IActionResult OrderReview()
+    {
+        return View();
+    }
+    
+    public IActionResult Customer()
     {
         return View();
     }

@@ -7,7 +7,7 @@ namespace BrickWells.Models;
 public partial class Product
 {
     [Key]
-    public double ProductId { get; set; }
+    public int ProductId { get; set; }
 
     public string Name { get; set; }
 

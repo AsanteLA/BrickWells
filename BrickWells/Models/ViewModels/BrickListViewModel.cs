@@ -7,4 +7,8 @@ public class BrickListViewModel
     public PaginationInfo PaginationInfo { get; set; } = new PaginationInfo();
     
     public string? currentCategory { get; set; }
+    
+    public Cart Cart { get; set; } = new Cart();
+    
+    public Order Order { get; set; } = new Order();
 }

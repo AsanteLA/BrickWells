@@ -17,7 +17,7 @@ public partial class BrickwellsContext : DbContext
 
     public virtual DbSet<Customer> Customers { get; set; }
 
-    public virtual DbSet<LineItem> LineItems { get; set; }
+    // public virtual DbSet<LineItem> LineItems { get; set; }
 
     public virtual DbSet<Order> Orders { get; set; }
 
@@ -32,8 +32,8 @@ public partial class BrickwellsContext : DbContext
         modelBuilder.Entity<Customer>(entity =>
         {
             entity
-                .HasNoKey()
-                .ToTable("customers");
+                .HasKey(e => e.CustomerId);
+                entity.ToTable("customers");
 
             entity.Property(e => e.Age).HasColumnName("age");
             entity.Property(e => e.BirthDate).HasColumnName("birth_date");
@@ -46,6 +46,7 @@ public partial class BrickwellsContext : DbContext
 
         modelBuilder.Entity<LineItem>(entity =>
         {
+            
             entity.HasNoKey();
 
             entity.Property(e => e.ProductId).HasColumnName("product_ID");
@@ -57,8 +58,8 @@ public partial class BrickwellsContext : DbContext
         modelBuilder.Entity<Order>(entity =>
         {
             entity
-                .HasNoKey()
-                .ToTable("orders");
+                .HasKey(e => e.TransactionId);
+                entity.ToTable("orders");
 
             entity.Property(e => e.Amount).HasColumnName("amount");
             entity.Property(e => e.Bank).HasColumnName("bank");
@@ -78,8 +79,8 @@ public partial class BrickwellsContext : DbContext
         modelBuilder.Entity<Product>(entity =>
         {
             entity
-                .HasNoKey()
-                .ToTable("products");
+                .HasKey(e => e.ProductId);
+                entity.ToTable("products");
 
             entity.Property(e => e.Category).HasColumnName("category");
             entity.Property(e => e.Description).HasColumnName("description");
