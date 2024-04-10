@@ -1,0 +1,52 @@
+@{
+    ViewData["Title"] = "Product Entry Form";
+}
+@model Product
+
+<form method="post">
+    <input type="hidden" asp-for="ProductId"/>
+    
+
+    <label asp-for="Name"></label><br/>
+    <input asp-for="Name"/>
+    <br/><br/>
+  
+    <label asp-for="Year"></label><br/>
+    <input asp-for="Year"/>
+    <br/><br/>
+
+    <label asp-for="NumParts"></label><br/>
+    <input asp-for="NumParts"/>
+    <br/><br/>
+
+    <label asp-for="Price"></label><br/>
+    <input asp-for="Price"/>
+    <br/><br/>
+
+    <label asp-for="ImgLink"></label><br/>
+    <input asp-for="ImgLink"/>
+    <br/><br/>
+
+    <label asp-for="PrimaryColor"></label><br/>
+    <input asp-for="PrimaryColor"/>
+    <br/><br/>
+
+    <label asp-for="SecondaryColor"></label><br/>
+    <input asp-for="SecondaryColor"/>
+    <br/><br/>
+ 
+    <label asp-for="Description"></label><br/>
+    <input asp-for="Description"/>
+    <br/><br/>
+ 
+    <label asp-for="Category"></label><br/>
+    <input asp-for="Category"/>
+    <br/><br/>
+    
+    
+    
+    <button type="submit">Submit!</button>
+    <br />
+
+    <div asp-validation-summary="All"></div>
+</form>

@@ -1,5 +1,6 @@
 @model List<Product>
 
+
 <table class="table table-success table-striped">
     <thead class="fw-bold table-light text-center">
     <tr>
@@ -13,12 +14,32 @@
         <td>Secondary Color</td>
         <td>Description</td>
         <td>Category</td>
+        <td>Edit</td>
+        <td>Delete</td>
     </tr>
     </thead>
     @foreach (var prod in Model)
     {
-        <tbody>
-        
+        <tbody class="table-group-divider">
+        <tr>
+            <td>@prod.ProductId</td>
+            <td>@prod.Name</td>
+            <td>@prod.Year</td>
+            <td>@prod.NumParts</td>
+            <td>@prod.Price</td>
+            <td>@prod.ImgLink</td>
+            <td>@prod.PrimaryColor</td>
+            <td>@prod.SecondaryColor</td>
+            <td>@prod.Description</td>
+            <td>@prod.Category</td>
+            
+            <td><a class="btn btn-info" asp-controller="Admin" asp-action="PEdit" asp-route-id="@prod.ProductId">Edit</a></td>
+            <td><a class="btn btn-danger" asp-controller="Admin" asp-action="PDelete" asp-route-id="@prod.ProductId">Delete</a></td>
+        </tr>
         </tbody>
     }
 </table>
+
+@* <div page-model="@Model.PaginationInfo" page-action="Products" page-classes-enabled="true" *@
+@*      page-class="btn" page-class-normal="btn-outline-dark" page-class-selected="btn-primary" *@
+@*      page-url-category="@Model.currentCategory" class="btn-group m-1"></div> *@
