@@ -1,8 +1,130 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
+    var customer = ViewBag.Customer as Customer;
+    var order = ViewBag.Orders as Order;
+    var transaction = ViewBag.TransactionId as LineItem;
+    var recommendedProducts = ViewBag.RecommendedProducts as List<Product>;
 }
+@model BrickListViewModel;
+@{
+    ViewData["Title"] = "Home Page";
+    var customer = ViewBag.Customer as Customer;
+    var order = ViewBag.Orders as Order;
+    var transaction = ViewBag.TransactionId as LineItem;
+    var recommendedProducts = ViewBag.RecommendedProducts as List<Product>;
+}
+@model BrickListViewModel;
 
 <div class="text-center">
     <h1 class="display-4">Welcome</h1>
     <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
 </div>
+
+
+<div class="container-fluid mt-3">
+    <h1 class="text-center">Popular Products:</h1>
+    @foreach (Product p in Model.Products)
+    {
+        <partial name="ProductSummary" model="p"/>
+    }
+</div>
+
+<div class="container-fluid">
+    <h1>Customer</h1>
+    <p>@customer.FirstName</p>
+    <p>@customer.LastName</p>
+    <p>@customer.Age</p>
+</div>
+
+
+<div class="container-fluid">
+    <h1>Order</h1>
+    <p>@order.Date</p>
+    <p>@order.TransactionId</p>
+    
+</div>
+
+<h1>@transaction.ProductId</h1>
+
+@if (recommendedProducts != null)
+{
+    <h2 class="text-center m-5">Recommended Products</h2>
+    <div class="row">
+    @foreach (var recProduct in recommendedProducts)
+    {
+        <div class="card">
+            <div class="card-header">
+                <h6>@recProduct.Name</h6>
+            </div>
+            <div class="card-body">
+                <img src="@recProduct.ImgLink" alt="@recProduct.Name">
+                <p>$ @recProduct.Price</p>
+                <p>@recProduct.Category</p>
+                <!-- Display other recommended product properties as needed -->
+
+            </div>
+        </div>
+    }
+    </div>
+}
+
+
+
+
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+
+
+<div class="container-fluid mt-3">
+    <h1 class="text-center">Popular Products:</h1>
+    @foreach (Product p in Model.Products)
+    {
+        <partial name="ProductSummary" model="p"/>
+    }
+</div>
+
+<div class="container-fluid">
+    <h1>Customer</h1>
+    <p>@customer.FirstName</p>
+    <p>@customer.LastName</p>
+    <p>@customer.Age</p>
+</div>
+
+
+<div class="container-fluid">
+    <h1>Order</h1>
+    <p>@order.Date</p>
+    <p>@order.TransactionId</p>
+    
+</div>
+
+<h1>@transaction.ProductId</h1>
+
+@if (recommendedProducts != null)
+{
+    <h2 class="text-center m-5">Recommended Products</h2>
+    <div class="row">
+    @foreach (var recProduct in recommendedProducts)
+    {
+        <div class="card">
+            <div class="card-header">
+                <h6>@recProduct.Name</h6>
+            </div>
+            <div class="card-body">
+                <img src="@recProduct.ImgLink" alt="@recProduct.Name">
+                <p>$ @recProduct.Price</p>
+                <p>@recProduct.Category</p>
+                <!-- Display other recommended product properties as needed -->
+
+            </div>
+        </div>
+    }
+    </div>
+}
+
+
+
+
