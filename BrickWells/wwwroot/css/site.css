@@ -223,6 +223,7 @@ header {
 .nav-logo{
   width: 40vh; /* Adjust the width as needed */
   height: auto; /* Maintain aspect ratio */
+  margin-bottom: -10px;
 }
 .gradient-box {
   width: 100%;
