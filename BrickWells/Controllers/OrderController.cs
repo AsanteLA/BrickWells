@@ -16,6 +16,26 @@ public class OrderController : Controller
     }
     public ViewResult Checkout() => View(new Order());
     
+    [HttpGet]
+    public IActionResult UserRegistrationForm()
+    {
+        return View("UserRegistrationForm", new Customer());
+    }
+    
+    [HttpPost]
+    public IActionResult UserRegistrationForm(Customer response)
+    {
+        if(ModelState.IsValid)
+        {
+            repository.AddCustomer(response);
+            return RedirectToAction("Checkout");
+        }
+        else
+        {
+            return View(response);
+        }
+    }
+    
     [HttpPost]
     public IActionResult Checkout(Order order)
     {
@@ -34,5 +54,9 @@ public class OrderController : Controller
         {
             return View(order);
         }
+        
+        
     }
+
+
 }

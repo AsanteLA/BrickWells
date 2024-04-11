@@ -6,16 +6,17 @@
         <td>Transaction ID</td>
         <td>Customer ID</td>
         <td>Date </td>
-        <td>Day of The Week</td>
-        <td>Time</td>
-        <td>Entry Mode</td>
+        @* <td>Day of The Week</td> *@
+        @* <td>Time</td> *@
+        @* <td>Entry Mode</td> *@
         <td>Amount</td>
-        <td>Type of Transaction</td>
+        @* <td>Type of Transaction</td> *@
         <td>Country of Transaction</td>
         <td>Shipping Address</td>
-        <td>Bank</td>
-        <td>Type of Card</td>
+        @* <td>Bank</td> *@
+        @* <td>Type of Card</td> *@
         <td>Fraud</td>
+        <td>Action</td>
     </tr>
     </thead>
     @foreach (var order in Model.Orders)
@@ -25,16 +26,18 @@
             <td>@order.TransactionId</td>
             <td>@order.CustomerId</td>
             <td>@order.Date</td>
-            <td>@order.DayOfWeek</td>
-            <td>@order.Time</td>
-            <td>@order.EntryMode</td>
-            <td>@order.Amount</td>
-            <td>@order.TypeOfTransaction</td>
+            @* <td>@order.DayOfWeek</td> *@
+            @* <td>@order.Time</td> *@
+            @* <td>@order.EntryMode</td> *@
+            <td>$@order.Amount</td>
+            @* <td>@order.TypeOfTransaction</td> *@
             <td>@order.CountryOfTransaction</td>
             <td>@order.ShippingAddress</td>
-            <td>@order.Bank</td>
-            <td>@order.TypeOfCard</td>
+            @* <td>@order.Bank</td> *@
+            @* <td>@order.TypeOfCard</td> *@
             <td>@order.Fraud</td>
+            
+            <td><a class="btn btn-info" asp-controller="Admin" asp-action="OrderDetails" asp-route-id="@order.TransactionId">Review</a></td>
         </tr>
         </tbody>
     }
