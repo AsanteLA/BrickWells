@@ -10,7 +10,7 @@
 </head>
 <body>
 <header>
-    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow">
         <div class="container-fluid">
             @* <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">BrickWells</a> *@
             <img class="nav-logo" asp-area="" asp-controller="Home" asp-action="Index" src="/img/Lego_imgs/Brickwells_logo.png" alt="Brickwell logo">
@@ -38,7 +38,8 @@
 </header>
 @* <div class="container"> *@
 <div>
-    <main role="main" class="pb-3">
+    <main role="main">
+    @* <main role="main" class="pb-3"> *@
         @RenderBody()
     </main>
 </div>
