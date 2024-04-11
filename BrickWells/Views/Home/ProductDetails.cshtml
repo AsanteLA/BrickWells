@@ -1,0 +1,34 @@
+@{
+    ViewData["Title"] = "Product Details";
+    var product = ViewBag.ProductToGet as Product;
+    var recommendedProducts = ViewBag.RecommendedProducts as List<Product>;
+}
+
+<div class="card">
+    <div class="card-header">
+        <h4>@product.Name</h4>
+    </div>
+    <div class="card-body">
+        <img src="@product.ImgLink" alt="">
+        <ul class="list-group">
+            <li class="list-group-item">@product.Price</li>
+            <li class="list-group-item">@product.Year</li>
+            <li class="list-group-item">@product.Category</li>
+        </ul>
+    </div>
+</div>
+
+@foreach (var recProduct in recommendedProducts as List<Product>)
+{
+    <div>
+        <h3>@recProduct.Name</h3>
+        <p>@recProduct.Description</p>
+        <p>@recProduct.Price</p>
+        <img src="@recProduct.ImgLink" alt="Product Image">
+    </div>
+}
+
+
+
+
+

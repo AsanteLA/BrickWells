@@ -13,6 +13,8 @@
         <p>Category: @Model.Category</p>
     </div>
     
+    
+    <a asp-controller="Home" asp-action="ProductDetails" asp-route-id="@Model.ProductId" class="btn btn-outline-primary">Details</a>
     <form id=@Model.ProductId method="post" asp-page="/Cart">
         <input type="hidden" asp-for="ProductId "/>
         <input type="hidden" name="returnUrl" value="@ViewContext.HttpContext.Request.PathAndQuery()"/>
