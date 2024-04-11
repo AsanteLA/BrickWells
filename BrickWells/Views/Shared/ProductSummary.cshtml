@@ -1,0 +1,20 @@
+@using BrickWells.Infrastructure
+@using Microsoft.AspNetCore.Mvc.TagHelpers
+@model Product
+
+<div class="ProductCard">
+    <img src=@Model.ImgLink alt="Image">
+    <div>
+        <h4>@Model.Name</h4>
+        <p>Year: @Model.Year</p>
+        <p>Number of Parts: @Model.NumParts</p>
+        <p>Price: $@Model.Price</p>
+        <p>Category: @Model.Category</p>
+    </div>
+    
+    <form id=@Model.ProductId method="post" asp-page="/Cart">
+            <input type="hidden" asp-for="ProductId "/>
+            <input type="hidden" name="returnUrl" value="@ViewContext.HttpContext.Request.PathAndQuery()"/>
+            <button type="submit" class="btn btn-outline-success btn-sm float-end">Add to Cart.</button>
+        </form>
+</div>

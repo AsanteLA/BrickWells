@@ -20,3 +20,64 @@ html {
 body {
   margin-bottom: 60px;
 }
+
+/*Test Classes*/
+
+.ProductCard {
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+  margin: 10px;
+  width: calc(30% - 20px); /* 1/4th of the screen width minus margins */
+  max-width: 300px; /* Maximum width */
+  display: inline-block;
+  vertical-align: top;
+  background-color: #fff; /* Add your desired background color */
+  box-sizing: border-box; /* Include padding and border in the width */
+}
+
+.ProductCard img {
+  width: 100%;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.ProductCard .content {
+  padding: 15px;
+}
+
+.ProductCard .content h3 {
+  margin-top: 0;
+  font-size: 18px; /* Adjust as needed */
+}
+
+.ProductCard .content p {
+  margin-bottom: 0;
+  color: #666; /* Adjust text color */
+}
+
+/* Ensure that there are 4 cards per row */
+@media screen and (max-width: 1200px) {
+  .ProductCard {
+    width: calc(25% - 20px); /* 1/4th of the screen width minus margins */
+  }
+}
+
+@media screen and (max-width: 992px) {
+  .ProductCard {
+    width: calc(33.33% - 20px); /* 1/3rd of the screen width minus margins */
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .ProductCard {
+    width: calc(50% - 20px); /* 1/2 of the screen width minus margins */
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .ProductCard {
+    width: calc(100% - 20px); /* Full width minus margins */
+  }
+}

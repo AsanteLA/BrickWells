@@ -1,0 +1,14 @@
+@model Customer
+
+<h2>Confirm Deletion.</h2>
+<br />
+<h3>Customer Name: @Model.FirstName</h3>
+
+<form method="post">
+
+    <input type="hidden" asp-for="CustomerId" /> @*You always need to add the application ID to the form for the post method to work*@
+
+    @* Buttons for delete an cancelation *@
+    <button type="submit" class="btn btn-outline-danger">Delete</button>
+    <a class="btn btn-secondary" asp-controller="Admin" asp-action="CustomerInfo">Cancel</a>
+</form>

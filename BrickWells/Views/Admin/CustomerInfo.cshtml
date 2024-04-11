@@ -1,0 +1,35 @@
+@model List<Customer>
+
+<table class="table table-success table-striped">
+    <thead class="fw-bold table-light text-center">
+        <tr>
+            <td>Customer ID</td>
+            <td>First Name</td>
+            <td>Last Name</td>
+            <td>Birth Date</td>
+            <td>Country of Residence</td>
+            <td>Gender</td>
+            <td>Age</td>
+            <td>Edit</td>
+            <td>Delete</td>
+        </tr>
+    </thead>
+    @foreach (var customer in Model)
+        {
+            <tbody class="table-group-divider">
+            <tr>
+                <td>@customer.CustomerId</td>
+                <td>@customer.FirstName</td>
+                <td>@customer.LastName</td>
+                <td>@customer.BirthDate</td>
+                <td>@customer.CountryOfResidence</td>
+                <td>@customer.Gender</td>
+                <td>@customer.Age</td>
+
+                
+                <td><a class="btn btn-info" asp-controller="Admin" asp-action="CEdit" asp-route-id="@customer.CustomerId">Edit</a></td>
+                <td><a class="btn btn-danger" asp-controller="Admin" asp-action="CDelete" asp-route-id="@customer.CustomerId">Delete</a></td>
+            </tr>
+            </tbody>
+        }
+    </table>
