@@ -21,7 +21,7 @@ public partial class Customer
     [Required(ErrorMessage = "Please enter a valid Country of Residence")]
     public string CountryOfResidence { get; set; }
 
-    [Required(ErrorMessage = "Please enter a Gender")]
+    // [Required(ErrorMessage = "Please enter a Gender")]
     public string? Gender { get; set; }
 
     [Required(ErrorMessage = "Please enter a valid Age")]
