@@ -27,7 +27,7 @@ public class HomeController : Controller
         // PSUEDO CODE TO GRAB THE SUGGESTIONS FOR LOGGED IN USERS
         
         // get the customer id of the logged in user 
-        var customerID = 1;
+        var customerID = 11;
         // look up customer id in the customer table
         var customerQuery = _repo.Customers
             .Single(x => x.CustomerId == customerID);
