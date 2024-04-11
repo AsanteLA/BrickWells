@@ -1,4 +1,4 @@
-@model List<Customer>
+@model CustomerListViewModel
 
 <table class="table table-success table-striped">
     <thead class="fw-bold table-light text-center">
@@ -14,7 +14,7 @@
             <td>Delete</td>
         </tr>
     </thead>
-    @foreach (var customer in Model)
+    @foreach (var customer in Model.Customers)
         {
             <tbody class="table-group-divider">
             <tr>
@@ -32,4 +32,7 @@
             </tr>
             </tbody>
         }
-    </table>
+</table>
+
+<div page-model="@Model.PaginationInfo" page-action="CustomerInfo" page-classes-enabled="true" page-class="btn" 
+     page-class-normal="btn-outline-dark" page-class-selected="btn-primary" class="btn-group pull-right m-1"></div>

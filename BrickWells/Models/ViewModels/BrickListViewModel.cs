@@ -8,9 +8,9 @@ public class BrickListViewModel
     
     public string? currentCategory { get; set; }
     
-    public Cart Cart { get; set; } = new Cart();
+    // public Cart Cart { get; set; } = new Cart();
     
-    public List<Product> Product { get; set; }
+    // public List<Product> Product { get; set; }
     
     
 }
