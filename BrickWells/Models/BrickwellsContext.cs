@@ -17,7 +17,7 @@ public partial class BrickwellsContext : DbContext
 
     public virtual DbSet<Customer> Customers { get; set; }
 
-    // public virtual DbSet<LineItem> LineItems { get; set; }
+    public virtual DbSet<LineItem> LineItems { get; set; }
 
     public virtual DbSet<Order> Orders { get; set; }
 
