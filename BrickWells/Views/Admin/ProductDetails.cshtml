@@ -1,0 +1,39 @@
+@{
+    ViewData["Title"] = "Product Details";
+    Layout = null;
+}
+@model Product 
+
+
+<div class="row">
+<div class="col-6">
+    <div class="container-lg">
+       <div class="card">
+           <div class="card-header">
+               <h3>@Model.Name</h3>
+           </div>
+           <div class="card-body">
+               <ul class="list-group">
+                   <li class="list-group-item">@Model.Price</li>
+                   <li class="list-group-item">@Model.Year</li>
+                   <li class="list-group-item">@Model.Category</li>
+                   <li class="list-group-item">@Model.NumParts</li>
+               </ul>
+
+           </div>
+</div>
+    </div>
+</div>
+<div class="col-6">
+    <img src="@Model.ImgLink" alt="@Model.Name" class="img-fluid">
+    
+    <p>@Model.Description</p>
+</div>
+</div>
+
+<a class="btn btn-info" asp-controller="Admin" asp-action="ProductDetails" asp-route-id="@Model.ProductId">Details</a>
+<a class="btn btn-danger" asp-controller="Admin" asp-action="PDelete" asp-route-id="@Model.ProductId">Delete</a>
+
+
+
+
