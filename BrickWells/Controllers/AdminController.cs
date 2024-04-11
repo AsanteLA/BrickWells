@@ -42,6 +42,14 @@ public class AdminController : Controller
         return View(brickProducts);
     }
     
+    public IActionResult ProductDetails(int Id)
+    {
+        var productDetails = _repo.Products
+            .Single(x => x.ProductId == Id);
+        
+        return View(productDetails);
+    }
+    
     [HttpGet]
     public IActionResult AddProduct()
     {
@@ -156,6 +164,7 @@ public class AdminController : Controller
     }
     
     
+    //Order Information and Methods
     public IActionResult OrderReview(int pageNum)
     {
         int pageSize = 25;
@@ -174,14 +183,16 @@ public class AdminController : Controller
                 totalItems = 500 // _repo.Orders.Count()
             }
         };
-
         
         return View(brickOrders);
-        
     }
     
-    
-
-
+    public IActionResult OrderDetails(int Id)
+    {
+        var orderDetails = _repo.Orders
+            .Single(x => x.TransactionId == Id);
+        
+        return View(orderDetails);
+    }
     
 }
