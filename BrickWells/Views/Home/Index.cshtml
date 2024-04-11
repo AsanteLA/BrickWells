@@ -1,7 +1,7 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
-    // var customer = ViewBag.Customer as Customer;
-    // var order = ViewBag.Orders as Order;
+    var customer = ViewBag.Customer as Customer;
+    var order = ViewBag.Orders as Order;
     // var transaction = ViewBag.TransactionId as LineItem;
     // var recommendedProducts = ViewBag.RecommendedProducts as List<Product>;
 }
@@ -21,23 +21,23 @@
     }
 </div>
 
-@* <div class="container-fluid"> *@
-@*     <h1>Customer</h1> *@
-@*     <p>@customer.FirstName</p> *@
-@*     <p>@customer.LastName</p> *@
-@*     <p>@customer.Age</p> *@
-@* </div> *@
-@* *@
-@* *@
-@* <div class="container-fluid"> *@
-@*     <h1>Order</h1> *@
-@*     <p>@order.Date</p> *@
-@*     <p>@order.TransactionId</p> *@
-@*      *@
-@* </div> *@
-@* *@
+<div class="container-fluid">
+    <h1>Customer</h1>
+    <p>@customer.FirstName</p>
+    <p>@customer.LastName</p>
+    <p>@customer.Age</p>
+</div>
+
+
+<div class="container-fluid">
+    <h1>Order</h1>
+    <p>@order.Date</p>
+    <p>@order.TransactionId</p>
+
+</div>
+
 @* <h1>@transaction.ProductId</h1> *@
-@* *@
+
 @* @if (recommendedProducts != null) *@
 @* { *@
 @*     <h2 class="text-center m-5">Recommended Products</h2> *@
@@ -52,13 +52,11 @@
 @*                     <img src="@recProduct.ImgLink" alt="@recProduct.Name"> *@
 @*                     <p>$ @recProduct.Price</p> *@
 @*                     <p>@recProduct.Category</p> *@
-@*                     <!-- Display other recommended product properties as needed --> *@
-@* *@
 @*                 </div> *@
 @*             </div> *@
 @*         } *@
 @*     </div> *@
-@* } *@
+
 
 
 
