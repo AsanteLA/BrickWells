@@ -2,6 +2,7 @@
 @using Microsoft.AspNetCore.Mvc.TagHelpers
 @model Product
 
+<div>
 <div class="ProductCard">
     <img src=@Model.ImgLink alt="Image">
     <div>
@@ -15,8 +16,9 @@
     
     <a asp-controller="Home" asp-action="ProductDetails" asp-route-id="@Model.ProductId" class="btn btn-outline-primary">Details</a>
     <form id=@Model.ProductId method="post" asp-page="/Cart">
-            <input type="hidden" asp-for="ProductId "/>
-            <input type="hidden" name="returnUrl" value="@ViewContext.HttpContext.Request.PathAndQuery()"/>
-            <button type="submit" class="btn btn-outline-success btn-sm float-end">Add to Cart.</button>
-        </form>
+        <input type="hidden" asp-for="ProductId "/>
+        <input type="hidden" name="returnUrl" value="@ViewContext.HttpContext.Request.PathAndQuery()"/>
+        <button type="submit" class="btn btn-outline-success btn-sm float-end">Add to Cart.</button>
+    </form>
+</div>
 </div>

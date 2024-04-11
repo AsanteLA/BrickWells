@@ -9,13 +9,13 @@
         <td>Year</td>
         <td>Number of Parts</td>
         <td>Price</td>
-        <td>Link to Image</td>
-        <td>Primary Color</td>
-        <td>Secondary Color</td>
-        <td>Description</td>
+        @* <td>Link to Image</td> *@
+        @* <td>Primary Color</td> *@
+        @* <td>Secondary Color</td> *@
+        @* <td>Description</td> *@
         <td>Category</td>
         <td>Edit</td>
-        <td>Delete</td>
+        @* <td>Delete</td> *@
     </tr>
     </thead>
     @foreach (var prod in Model.Products)
@@ -27,14 +27,14 @@
             <td>@prod.Year</td>
             <td>@prod.NumParts</td>
             <td>@prod.Price</td>
-            <td>@prod.ImgLink</td>
-            <td>@prod.PrimaryColor</td>
-            <td>@prod.SecondaryColor</td>
-            <td>@prod.Description</td>
+            @* <td>@prod.ImgLink</td> *@
+            @* <td>@prod.PrimaryColor</td> *@
+            @* <td>@prod.SecondaryColor</td> *@
+            @* <td>@prod.Description</td> *@
             <td>@prod.Category</td>
             
-            <td><a class="btn btn-info" asp-controller="Admin" asp-action="PEdit" asp-route-id="@prod.ProductId">Edit</a></td>
-            <td><a class="btn btn-danger" asp-controller="Admin" asp-action="PDelete" asp-route-id="@prod.ProductId">Delete</a></td>
+            <td><a class="btn btn-info" asp-controller="Admin" asp-action="ProductDetails" asp-route-id="@prod.ProductId">Details</a></td>
+            @* <td><a class="btn btn-danger" asp-controller="Admin" asp-action="PDelete" asp-route-id="@prod.ProductId">Delete</a></td> *@
         </tr>
         </tbody>
     }

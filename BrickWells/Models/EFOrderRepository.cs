@@ -13,11 +13,18 @@ public class EFOrderRepository : IOrderRepository
     }
 
     public IQueryable<Order> Orders => _context.Orders;
+    public IQueryable<Customer> Customers => _context.Customers;
     
 
     public void SaveOrder(Order order)
     {
         _context.Orders.Add(order);
+        _context.SaveChanges();
+    }
+    
+    public void AddCustomer(Customer customer)
+    {
+        _context.Customers.Add(customer);
         _context.SaveChanges();
     }
 }
