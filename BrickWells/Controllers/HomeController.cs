@@ -46,13 +46,19 @@ public class HomeController : Controller
         // if they user has no orders here then just display the default suggestions
         
         // else if there IS an order then go ahead and look up the product ID of that order in the item_based_rec table
-        var transactionId = _repo.OrderDetails
-            .Where(od => od.TransactionId == recentOrder.TransactionId)
-            .Select(od => od.ProductId) // Adjust this to match your actual property name
-            .SingleOrDefault(); // Get the transaction ID or null
+        // var transactionId = _repo.OrderDetails
+        //     .Where(od => od.TransactionId == recentOrder.TransactionId)
+        //     .Select(od => od.ProductId) // Adjust this to match your actual property name
+        //     .SingleOrDefault(); // Get the transaction ID or null
+        
+        var transactionId = recentOrder.TransactionId;
+        var productId = _repo.OrderDetails
+            .Where(od => od.TransactionId == transactionId)
+            .Select(od => od.ProductId)
+            .FirstOrDefault();
         
         var itemBasedRecs = _repo.ItemBasedRecs
-            .Single(x => x.ProductId == transactionId);
+            .Single(x => x.ProductId == productId);
     
         // // Retrieve the IDs of the recommended products
         var recommendedProductIds = new List<string?>()
