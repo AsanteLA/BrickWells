@@ -4,8 +4,13 @@
     var order = ViewBag.Orders as Order;
     var transaction = ViewBag.TransactionId as LineItem;
     var recommendedProducts = ViewBag.RecommendedProducts as List<Product>;
+
+    bool isAuthenticated = User.Identity.IsAuthenticated;
+    bool isAdmin = User.IsInRole("Admin");
 }
 @model BrickListViewModel;
+
+
 
 <div class="gradient-box-home">
   <div>
@@ -35,47 +40,67 @@
     </div>
 </div>
 
-<div class="container-fluid mt-3">
-    <h1 class="text-center">Popular Products:</h1>
-    @foreach (Product p in Model.Products)
-    {
-        <partial name="ProductSummary" model="p"/>
-    }
-</div>
 
-<div class="container-fluid">
-    <h1>Customer</h1>
-    <p>@customer.FirstName</p>
-    <p>@customer.LastName</p>
-    <p>@customer.Age</p>
-</div>
-
-
-<div class="container-fluid">
-    <h1>Order</h1>
-    <p>@order.Date</p>
-    <p>@order.TransactionId</p>
-
-</div>
-
-
-@if (recommendedProducts != null)
+@if (isAuthenticated)
 {
-    <h2 class="text-center m-5">Recommended Products</h2>
-    <div class="row">
-        @foreach (var recProduct in recommendedProducts)
+    @if (recommendedProducts != null)
+    {
+        <h1 class="text-center m-5">Just for you:</h1>
+        <h2>Cust id for the current user: @customer.CustomerId</h2>
+        <div class="row">
+            @foreach (var recProduct in recommendedProducts)
+            {
+                <div class="card">
+                    <div class="card-header">
+                        <h6>@recProduct.Name</h6>
+                    </div>
+                    <div class="card-body">
+                        <img src="@recProduct.ImgLink" alt="@recProduct.Name">
+                        <p>$ @recProduct.Price</p>
+                        <p>@recProduct.Category</p>
+                    </div>
+                </div>
+            }
+        </div>
+    
+    }
+    else
+    {
+        <h1>Top Products:</h1>
+        <div class="container-fluid mt-3">
+            <h1 class="text-center">Popular Products:</h1>
+            @foreach (Product p in Model.Products)
+            {
+                <partial name="ProductSummary" model="p"/>
+            }
+        </div>
+    }
+    
+}
+else
+{
+    <div class="container-fluid mt-3">
+        <h1 class="text-center">Popular Products:</h1>
+        @foreach (Product p in Model.Products)
         {
-            <div class="card">
-                <div class="card-header">
-                    <h6>@recProduct.Name</h6>
-                </div>
-                <div class="card-body">
-                    <img src="@recProduct.ImgLink" alt="@recProduct.Name">
-                    <p>$ @recProduct.Price</p>
-                    <p>@recProduct.Category</p>
-                </div>
-            </div>
+            <partial name="ProductSummary" model="p"/>
         }
     </div>
+
+    @* <div class="container-fluid"> *@
+    @*     <h1>Customer</h1> *@
+    @*     <p>@customer.FirstName</p> *@
+    @*     <p>@customer.LastName</p> *@
+    @*     <p>@customer.Age</p> *@
+    @* </div> *@
+    @* *@
+    @* *@
+    @* <div class="container-fluid"> *@
+    @*     <h1>Order</h1> *@
+    @*     <p>@order.Date</p> *@
+    @*     <p>@order.TransactionId</p> *@
+    @* *@
+    @* </div> *@
+
     
 }

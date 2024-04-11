@@ -1,8 +1,9 @@
 using Microsoft.AspNetCore.Mvc;
 using BrickWells.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace BrickWells.Controllers;
-
+[Authorize]
 public class UserController : Controller
 {
     private IUserRepository _repo;
@@ -42,5 +43,22 @@ public class UserController : Controller
 
         return View(recentOrder);
 
+    }
+
+    public IActionResult Index()
+    {
+        return View();
+    }
+    public IActionResult Privacy()
+    {
+        return View();
+    }
+    public IActionResult About()
+    {
+        return View();
+    }
+    public IActionResult Products()
+    {
+        return View();
     }
 }
