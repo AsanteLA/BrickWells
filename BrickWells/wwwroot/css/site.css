@@ -1,3 +1,99 @@
+@font-face {
+  font-family: 'Cera Pro';
+  src: url('https://assets.lego.com/fonts/v3/cera-pro/CeraPro-Bold.woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Cera Pro';
+  src: url('https://assets.lego.com/fonts/v3/cera-pro/CeraPro-Medium.woff2');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Cera Pro';
+  src: url('https://assets.lego.com/fonts/v3/cera-pro/CeraPro-Regular.woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Noto Sans SC';
+  src: url('https://assets.lego.com/fonts/v3/noto-sans/NotoSansSC-Bold.woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Noto Sans SC';
+  src: url('https://assets.lego.com/fonts/v3/noto-sans/NotoSansSC-Medium.woff2');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Noto Sans SC';
+  src: url('https://assets.lego.com/fonts/v3/noto-sans/NotoSansSC-Regular.woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Noto Sans JP';
+  src: url('https://assets.lego.com/fonts/v3/noto-sans/NotoSansJP-Bold.woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Noto Sans JP';
+  src: url('https://assets.lego.com/fonts/v3/noto-sans/NotoSansJP-Medium.woff2');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Noto Sans JP';
+  src: url('https://assets.lego.com/fonts/v3/noto-sans/NotoSansJP-Regular.woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Noto Sans KR';
+  src: url('https://assets.lego.com/fonts/v3/noto-sans/NotoSansKR-Bold.woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Noto Sans KR';
+  src: url('https://assets.lego.com/fonts/v3/noto-sans/NotoSansKR-Medium.woff2');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Noto Sans KR';
+  src: url('https://assets.lego.com/fonts/v3/noto-sans/NotoSansKR-Regular.woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
 html {
   font-size: 14px;
 }
@@ -17,67 +113,502 @@ html {
   min-height: 100%;
 }
 
+/*body {*/
+/*  margin-bottom: 60px;*/
+/*}*/
+/*Personal Styling*/
+:root {
+  --color-background-primary-white: #FFFFFF;
+  --color-background-content: #FFD500;
+  /*Primary colors*/
+  --corporate-yellow: #FFD500;
+  --corporate-red: #E3000B;
+  --corporate-blue: #006CB7;
+  --corporate-green: #00963E;
+  --corporate-grey: #bababa;
+  --dark-grey: #141414;
+  /*Secondary colors */
+  --corporate-pink: #DE007D;
+  --corporate-orange: #ff7700;
+  --corporate-lime-green: #AFCA00;
+  --corporate-dark-azur: #009BD7;
+  /*Font colors */
+  --black: #000000;
+  --white: #FFFFFF;
+  font-family: 'Noto Sans KR', sans-serif;
+}
 body {
-  margin-bottom: 60px;
+  /*background-image: linear-gradient(to top, #a1c6ea, #b5cceb, #c6d3ec, #d5daed, #e1e2ed, #e7e7ef, #ededf0, #f2f2f2, #f5f5f5, #f8f8f8, #fcfcfc, #ffffff);*/
+  font-family: 'Noto Sans KR', sans-serif;
+  font-weight: 300;
+}
+h1 {
+  font-size: 3em;
+}
+h2 {
+  font-size: 2em;
+}
+h3 {
+  font-family: 'Noto Sans SC', sans-serif;
+  font-size: 1.5em;
+}
+h4 {
+  font-family: 'Cera Pro', sans-serif;
+  font-size: 1.25em;
 }
 
-/*Test Classes*/
-
-.ProductCard {
-  border: 1px solid #ccc;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  padding: 10px;
-  margin: 10px;
-  width: calc(30% - 20px); /* 1/4th of the screen width minus margins */
-  max-width: 300px; /* Maximum width */
-  display: inline-block;
-  vertical-align: top;
-  background-color: #fff; /* Add your desired background color */
-  box-sizing: border-box; /* Include padding and border in the width */
+h5 {
+  font-family: 'Noto Sans JP', sans-serif;
+  font-size: 1em;
 }
 
-.ProductCard img {
+h6 {
+  font-size: 0.75em;
+}
+
+p {
+  font-size: 1em;
+}
+
+header {
+  margin: 0!important;
+  padding: 0!important;
+  border: none;
+}
+.navbar {
+  background-color: var(--corporate-yellow)!important;
+  color: var(--corporate-yellow);
+  padding-top: 1px!important; /* Increase padding above the navbar */
+  padding-bottom: 1px; /* Increase padding below the navbar */
+}
+
+.navbar a {
+  color: var(--black)!important;
+  font-size: 1em;
+  font-weight: bold; /* Make the alt text bold */
+  padding-left: 30px!important; /* Increase padding above the navbar */
+  padding-right: 30px!important; /* Increase padding below the navbar */
+}
+.navbar a:hover {
+  color: var(--corporate-pink)!important;
+  background-image: url('//Lego_imgs/yellow_lego_background.jpg')!important;
+}
+
+.navbar ul li {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+.navbar .show {
+  color: var(--color-background-content);
+}
+
+.nav-link {
+  color: var(--corporate-yellow);
+  text-transform: uppercase;
+  font-size: .75em;
+}
+.nav-link:hover {
+  color: var(--color-background-content);
+}
+
+.nav-link:active {
+  color: var(--corporate-yellow);
+}
+
+.nav-item {
+  width: auto;
+}
+.nav-logo{
+  width: 40vh; /* Adjust the width as needed */
+  height: auto; /* Maintain aspect ratio */
+  margin-bottom: -10px;
+}
+.gradient-box-home {
   width: 100%;
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
+  height: 90vh!important; /* Use viewport height (vh) to make it taller */
+  /*background: linear-gradient(to bottom, var(--black),var(--dark-grey), white);*/
+  border: none;
+  background-image: url("../img/Lego_imgs/space.jpeg");
+  background-size: cover; /* Cover the entire viewport */
+  background-position: center; /* Center the background image */
+  background-repeat: no-repeat; /* Prevent background image from repeating */
+  /*filter: blur(8px);*/
+  /*-webkit-filter: blur(8px);*/
+}
+.gradient-box {
+  width: 100%;
+  height: 90vh!important; /* Use viewport height (vh) to make it taller */
+  background: linear-gradient(to bottom, var(--black),var(--dark-grey), white);
+  margin-top: -30px; /* Adjust the value as needed */
+  border: none;
+}
+.yellow-box {
+  background-color: var(--corporate-yellow);
+  width: 500px; /* Adjust the width as needed */
+  height: 350px; /* Maintain aspect ratio */
+  padding: 20px;
+  margin-left: 100vh;
+  margin-top: -400px;
+}
+.yellow-box-letters {
+  padding: 25px;
 }
 
-.ProductCard .content {
-  padding: 15px;
+.box {
+  width: 500px; /* Adjust the width as needed */
+  height: 700px; /* Maintain aspect ratio */
+  background-color: white;
+  border-radius: 10px; /* Adjust border-radius for more or less rounding */
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Optional: Add shadow for depth */
+  padding: 20px; /* Adjust padding as needed */
+}
+.sign-in_sign-up {
+  background-image: url("../img/Lego_imgs/sharp_bg_bluemen.jpeg");
+  background-size: cover; /* Cover the entire viewport */
+  background-position: center; /* Center the background image */
+  background-repeat: no-repeat; /* Prevent background image from repeating */
+  /*font-family: 'Noto Sans KR', sans-serif;*/
+  /*font-weight: 300;*/
+}
+/*Button Functionality*/
+button {
+  cursor: pointer;
 }
 
-.ProductCard .content h3 {
-  margin-top: 0;
-  font-size: 18px; /* Adjust as needed */
+/*button:hover {*/
+
+/*}*/
+
+.btn-primary {
+  background-color: var(--corporate-yellow);
+  color: var(--black);
+  border: none; /* Adding a black border */
+  width: 200px;
+  height: 50px;
+  font-size: 1em;
+  border-radius: 15px;
+  transition: .2s;
+}
+.btn-primary:hover {
+  background:url("../img/Lego_imgs/yellow_lego_background.jpg") no-repeat;
+  font-weight: bold;
 }
 
-.ProductCard .content p {
-  margin-bottom: 0;
-  color: #666; /* Adjust text color */
+.btn-alt {
+  background-color: var(--black); /* Default image */
+  background-size: cover;
+  border: none;
+  color: white;
+  width: 200px; /* Adjust the width and height as needed */
+  height: 70px;
+}
+/*.btn-alt:hover {*/
+/*  background-color: var(--color-blue-light);*/
+/*  color: var(--color-blue-darker);*/
+/*}*/
+
+footer {
+  background-color: var(--corporate-yellow);
+  color: #fff;
+  padding: 20px 0;
+  text-align: center;
 }
 
-/* Ensure that there are 4 cards per row */
-@media screen and (max-width: 1200px) {
-  .ProductCard {
-    width: calc(25% - 20px); /* 1/4th of the screen width minus margins */
-  }
+.footer-columns {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
 }
 
-@media screen and (max-width: 992px) {
-  .ProductCard {
-    width: calc(33.33% - 20px); /* 1/3rd of the screen width minus margins */
-  }
+.footer-column {
+  flex: 1;
+  margin: 10px;
 }
 
-@media screen and (max-width: 768px) {
-  .ProductCard {
-    width: calc(50% - 20px); /* 1/2 of the screen width minus margins */
-  }
+.footer-column.left-column {
+  text-align: left;
+  padding-left: 0px;
+  
 }
 
-@media screen and (max-width: 576px) {
-  .ProductCard {
-    width: calc(100% - 20px); /* Full width minus margins */
-  }
+.footer-column.middle-column {
+  text-align: left;
 }
+
+.footer-column.right-column {
+  text-align: left;
+}
+
+.footer-column h3 {
+  margin-bottom: 10px;
+  padding-left: 30px;
+}
+.footer-column p {
+  margin-bottom: 10px;
+  padding-left: 30px;
+}
+
+.footer-column a {
+  color: #0f5132 !important;
+  text-decoration: none;
+  display: block;
+  margin-bottom: 10px;
+  padding-left: 30px;
+}
+.footer-column img {
+  max-width: 100%;
+  height: auto;
+  margin-bottom: -15px;
+}
+
+
+
+
+
+
+/*Darla Holdovers*/
+
+
+/*h1 {*/
+/*  color: var(--color-blue-dark);*/
+/*  font-size: 3em;*/
+/*  font-family: 'Quicksand', sans-serif;*/
+/*  font-weight: bolder;*/
+/*}*/
+
+/*h2 {*/
+/*  color: var(--color-blue);*/
+/*  font-size: 2em;*/
+/*  font-family: 'Quicksand', sans-serif;*/
+/*  font-weight: bolder;*/
+/*}*/
+
+/*h3 {*/
+/*  color: var(--color-blue);*/
+/*  font-size: 1.5em;*/
+/*  font-family: 'Quicksand', sans-serif;*/
+/*}*/
+
+/*h4 {*/
+/*  color: var(--color-blue);*/
+/*  font-size: 1.25em;*/
+/*  font-family: 'Open Sans', sans-serif;*/
+/*  text-transform: uppercase;*/
+/*}*/
+
+/*h5 {*/
+/*  color: var(--color-blue);*/
+/*  font-size: 1em;*/
+/*  font-family: 'Open Sans', sans-serif;*/
+/*  text-transform: uppercase;*/
+/*}*/
+
+/*h6 {*/
+/*  color: var(--color-blue);*/
+/*  font-size: 0.75em;*/
+/*  font-family: 'Open Sans', sans-serif;*/
+/*  text-transform: uppercase;*/
+/*}*/
+
+/*p {*/
+/*  color: var(--color-blue-dark);*/
+/*  font-size: 1em;*/
+/*  font-family: 'Open Sans', sans-serif;*/
+/*  padding: 10px 0px;*/
+/*}*/
+
+.darla-content {
+  background-color: var(--color-background-content);
+  padding: 20px;
+  border-radius: 15px;
+}
+
+.darla-content p {
+  color: var(--color-blue-dark);
+  font-size: 1.25em;
+  font-family: 'Share Tech', sans-serif;
+}
+
+span {
+  color: var(--color-yellow);
+  font-weight: bold;
+}
+
+.back-button {
+
+}
+
+.darla-content button {
+  background-color: var(--color-blue-dark);
+  color: var(--color-white);
+  border: none;
+  width: 100px;
+  height: 50px;
+  font-size: 1.5em;
+  cursor: pointer;
+  border-radius: 15px;
+  transition: .2s;
+}
+
+.darla-content button:hover {
+  background-color: var(--color-yellow);
+  color: var(--color-blue-dark);
+}
+
+.darla-content span {
+  color: var(--color-white);
+  font-weight: bold;
+}
+
+.custom-sign-in{
+  border-radius: 1.25rem;
+}
+
+select {
+  padding: 5px 10px;
+  margin: 5px;
+  color: var(--color-white);
+  border: 0;
+  background-color: var(--color-blue-dark);
+  border-radius: 5px;
+}
+
+label {
+  color: var(--color-blue-dark);
+  font-size: 1em;
+  font-family: 'Open Sans', sans-serif;
+  padding: 5px 5px;
+}
+
+td {
+  padding: 5px;
+}
+
+.card {
+  box-shadow: 0px 0px 5px var(--color-blue-light);
+  margin: 10px;
+  padding: 10px;
+}
+.progress {
+  margin-bottom: 20px;
+}
+
+#countdown {
+  font-size: 2em;
+  font-weight: bold;
+  color: var(--color-blue-dark);
+}
+
+.navbar {
+  background-color: var(--color-blue-dark);
+  color: var(--color-white);
+}
+
+.navbar a {
+  color: var(--color-white);
+}
+.navbar a:hover {
+  color: var(--color-background-content);
+}
+
+.navbar ul li {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+.navbar .show {
+  color: var(--color-background-content);
+}
+
+.nav-link {
+  color: var(--color-white);
+  text-transform: uppercase;
+  font-size: .75em;
+}
+.nav-link:hover {
+  color: var(--color-background-content);
+}
+
+.nav-link:active {
+  color: var(--color-blue-light);
+}
+
+.nav-item {
+  width: auto;
+}
+
+a {
+  color: var(--color-blue-dark);
+  text-decoration: none;
+  transition: .2s;
+}
+a:hover {
+  color: var(--color-blue-darker);
+  text-decoration: none;
+}
+
+input[type="checkbox"] {
+  width: 1em;
+  height: 1rem;
+  margin: 0px 5px 0;
+  accent-color: var(--color-blue-dark);
+}
+
+.container {
+  display: grid;
+  grid-template-columns: 1fr; /* Single column */
+  gap: 10px;
+  padding-bottom: 0px!important;
+  padding-top: 0px!important;
+}
+
+
+/*.box.over {*/
+/*    border: 3px dotted #666;*/
+/*    background-color: var(--color-gray);*/
+/*    color: var(--color-white);*/
+/*}*/
+
+/*Drag and Drop*/
+[draggable] {
+  user-select: none;
+}
+.dropzone {
+  border: 2px solid black; /* Black border */
+  padding: 10px;
+  margin-top: 20px; /* Added margin for separation */
+  width: 200px; /* Added width for better visibility */
+  text-align: center; /* Center the text */
+}
+.schedule-container {
+  display: flex;
+  justify-content: space-between;
+}
+.schedule, .ranking {
+  border: 1px solid #000;
+  margin: 10px;
+  padding: 10px;
+}
+.ranking-list {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+}
+/*Testing trash css*/
+/*Testing Button*/
+.button-with-hover-image {
+  background-image: var(--corporate-yellow); /* Default image */
+  background-size: cover;
+  width: 200px; /* Adjust the width and height as needed */
+  height: 50px;
+}
+
+.button-with-hover-image:hover {
+  background-image: url("blue_lego_background.jpg"); /* Image to display on hover */
+}
+/*End testing Button*/
+
