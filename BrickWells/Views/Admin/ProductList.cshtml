@@ -1,4 +1,4 @@
-@model List<Product>
+@model ProductListViewModel
 
 
 <table class="table table-success table-striped">
@@ -18,7 +18,7 @@
         <td>Delete</td>
     </tr>
     </thead>
-    @foreach (var prod in Model)
+    @foreach (var prod in Model.Products)
     {
         <tbody class="table-group-divider">
         <tr>
@@ -40,6 +40,5 @@
     }
 </table>
 
-@* <div page-model="@Model.PaginationInfo" page-action="Products" page-classes-enabled="true" *@
-@*      page-class="btn" page-class-normal="btn-outline-dark" page-class-selected="btn-primary" *@
-@*      page-url-category="@Model.currentCategory" class="btn-group m-1"></div> *@
+<div page-model="@Model.PaginationInfo" page-action="ProductList" page-classes-enabled="true" page-class="btn" 
+     page-class-normal="btn-outline-dark" page-class-selected="btn-primary" class="btn-group pull-right m-1"></div>

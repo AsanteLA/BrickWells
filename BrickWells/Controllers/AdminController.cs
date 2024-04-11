@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using BrickWells.Models;
 using Microsoft.AspNetCore.Authorization;
+using BrickWells.Models.ViewModels;
 
 namespace BrickWells.Controllers;
 
@@ -20,13 +21,25 @@ public class AdminController : Controller
     }
 
     //product Information and Methods
-    public IActionResult ProductList()
+    public IActionResult ProductList(int pageNum)
     {
-        var products = _repo.Products
-            .OrderBy(x => x.ProductId)
-            .ToList();
-        
-        return View(products);
+        int pageSize = 5;
+
+        var brickProducts = new ProductListViewModel
+        {
+            Products = _repo.Products
+                .OrderBy(x => x.ProductId)
+                .Skip((pageNum - 1) * pageSize)
+                .Take(pageSize),
+
+            PaginationInfo = new PaginationInfo
+            {
+                currentPage = pageNum,
+                itemsPerPage = pageSize,
+                totalItems = _repo.Products.Count()
+            }
+        };
+        return View(brickProducts);
     }
     
     [HttpGet]
@@ -85,13 +98,26 @@ public class AdminController : Controller
     
     
     //Customer Information and Methods
-    public IActionResult CustomerInfo()
+    public IActionResult CustomerInfo(int pageNum)
     {
-        var customers = _repo.Customers
-            .OrderBy(x => x.CustomerId)
-            .ToList();
-        
-        return View(customers);
+        int pageSize = 25;
+
+        var brickCustomers = new CustomerListViewModel()
+        {
+            Customers = _repo.Customers
+                .OrderBy(x => x.CustomerId)
+                .Skip((pageNum - 1) * pageSize)
+                .Take(pageSize),
+
+            PaginationInfo = new PaginationInfo
+            {
+                currentPage = pageNum,
+                itemsPerPage = pageSize,
+                totalItems = 500 // _repo.Orders.Count()
+            }
+        };
+
+        return View(brickCustomers);
     }
     
 
@@ -130,15 +156,30 @@ public class AdminController : Controller
     }
     
     
-    public IActionResult OrderReview()
+    public IActionResult OrderReview(int pageNum)
     {
-        var orders = _repo.Orders
-            .Where(x => x.Fraud == 1)
-            .OrderBy(x => x.TransactionId)
-            .ToList();
+        int pageSize = 25;
+
+        var brickOrders = new OrderListViewModel()
+        {
+            Orders = _repo.Orders
+                .OrderBy(x => x.TransactionId)
+                .Skip((pageNum - 1) * pageSize)
+                .Take(pageSize),
+
+            PaginationInfo = new PaginationInfo
+            {
+                currentPage = pageNum,
+                itemsPerPage = pageSize,
+                totalItems = 500 // _repo.Orders.Count()
+            }
+        };
+
         
-        return View(orders);
+        return View(brickOrders);
+        
     }
+    
     
 
 
