@@ -19,29 +19,30 @@ builder.Services.AddDbContext<BrickContext>(options =>
 // builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
 
-// Configure identity options and password requirements and policy
-builder.Services.Configure<IdentityOptions>(options =>
-{
-    // Password settings
-    options.Password.RequireDigit = true;
-    options.Password.RequiredLength = 10;
-    options.Password.RequireNonAlphanumeric = false;
-    options.Password.RequireUppercase = true;
-    options.Password.RequireLowercase = false;
-
-    // Lockout settings
-    options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(30);
-    options.Lockout.MaxFailedAccessAttempts = 10;
-    options.Lockout.AllowedForNewUsers = true;
-
-    // User settings
-    options.User.RequireUniqueEmail = true;
-});
+// // Configure identity options and password requirements and policy
+// builder.Services.Configure<IdentityOptions>(options =>
+// {
+//     // Password settings
+//     options.Password.RequireDigit = true;
+//     options.Password.RequiredLength = 10;
+//     options.Password.RequireNonAlphanumeric = false;
+//     options.Password.RequireUppercase = true;
+//     options.Password.RequireLowercase = false;
+//
+//     // Lockout settings
+//     options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(30);
+//     options.Lockout.MaxFailedAccessAttempts = 10;
+//     options.Lockout.AllowedForNewUsers = true;
+//
+//     // User settings
+//     options.User.RequireUniqueEmail = true;
+// });
 
 
 
 builder.Services.AddScoped<IBrickRepository, EFBrickRepository>();
 builder.Services.AddScoped<IOrderRepository, EFOrderRepository>();
+builder.Services.AddScoped<IUserRepository, EFUserRepository>();
 
 builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = false)
     .AddRoles<IdentityRole>()

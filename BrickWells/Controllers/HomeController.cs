@@ -28,6 +28,9 @@ public class HomeController : Controller
         
         // get the customer id of the logged in user 
         var customerID = 11;
+        // var customerID = _repo.Customers
+        //     .Where(x => x.CustomerId == asdf);
+        
         // look up customer id in the customer table
         var customerQuery = _repo.Customers
             .Single(x => x.CustomerId == customerID);
@@ -46,10 +49,7 @@ public class HomeController : Controller
         // if they user has no orders here then just display the default suggestions
         
         // else if there IS an order then go ahead and look up the product ID of that order in the item_based_rec table
-        // var transactionId = _repo.OrderDetails
-        //     .Where(od => od.TransactionId == recentOrder.TransactionId)
-        //     .Select(od => od.ProductId) // Adjust this to match your actual property name
-        //     .SingleOrDefault(); // Get the transaction ID or null
+       
         
         var transactionId = recentOrder.TransactionId;
         var productId = _repo.OrderDetails
