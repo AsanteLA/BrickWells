@@ -1,4 +1,4 @@
-@model List<Order>
+@model OrderListViewModel
 
 <table class="table table-success table-striped">
 <thead class="fw-bold table-light text-center">
@@ -18,7 +18,7 @@
     <td>Fraud</td>
 </tr>
 </thead>
-@foreach (var order in Model)
+@foreach (var order in Model.Orders)
 {
     <tbody class="table-group-divider">
     <tr>

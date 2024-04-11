@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using BrickWells.Models;
 using Microsoft.AspNetCore.Authorization;
+using BrickWells.Models.ViewModels;
 
 namespace BrickWells.Controllers;
 
@@ -137,8 +138,23 @@ public class AdminController : Controller
             .OrderBy(x => x.TransactionId)
             .ToList();
         
-        return View(orders);
+        var pageInfo = new PaginationInfo
+        {
+            currentPage  = ,
+            itemsPerPage = pageSize,
+            totalItems = _repo.Orders.Count()
+        };
+
+        var viewModel = new OrderListViewModel
+        {
+            Orders = orders,
+            PaginationInfo = pageInfo
+        };
+        
+        return View(viewModel);
+        
     }
+    
     
 
 
