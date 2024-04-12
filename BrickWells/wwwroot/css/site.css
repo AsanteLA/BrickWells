@@ -304,6 +304,9 @@ button {
   color: var(--corporate-grey);
   margin-bottom: 5px;
 }
+.pagination {
+  text-align: center;
+}
 
 /*button:hover {*/
 

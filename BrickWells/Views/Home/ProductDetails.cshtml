@@ -3,42 +3,51 @@
     var product = ViewBag.ProductToGet as Product;
     var recommendedProducts = ViewBag.RecommendedProducts as List<Product>;
 }
+@using Microsoft.AspNetCore.Mvc.TagHelpers
+@model BrickListViewModel
 
-<div class="card">
-    <div class="card-header">
-        <h4>@product.Name</h4>
-        <p>meh</p>
-    </div>
-    <div class="card-body">
-        <img src="@product.ImgLink" alt="">
-        <ul class="list-group">
-            <li>@product.Price</li>
-            <li>@product.Year</li>
-            <li>@product.Category</li>
-        </ul>
-    </div>
+<div class="container">
+    <row class="row">
+        <div class="col">
+            <br/>
+            <h2>@product.Name</h2>
+            <div class="card card-style" style="width: 500px;">
+                <img class="card-img-top card-im-per" src=@product.ImgLink alt="Image">
+                <div>
+                    <h4 class="card-text">@product.Name</h4>
+                    <p class="card-text">Year: @product.Year</p>
+                    <p class="card-text">Number of Parts: @product.NumParts</p>
+                    <p class="card-text">Price: $@product.Price</p>
+                    <p class="card-text">Category: @product.Category</p>
+                    <p class="card-text">Description: @product.Description</p>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <br/>
+            <h2>If you like this, you'll love these!</h2>
+
+            <div class="row">
+                @foreach (var recProduct in recommendedProducts as List<Product>)
+                {
+                    <div class="card  col-3 card-style" style="height: 22rem; width: 12rem;">
+                        <div>
+                            <img class="card-img-top" style="height: 6rem;" src="@recProduct.ImgLink" alt="@recProduct.Name">
+                            <h4 class="card-title">@recProduct.Name</h4>
+                            <p class="card-text">@recProduct.Category</p>
+                            <h4 class="card-text">$@recProduct.Price</h4>
+                            <button class="btn-primary-cart" type="submit">Add to Cart.</button>
+                        </div>
+
+                    </div>
+                }
+            </div>
+        </div>
+
+    </row>
+
 </div>
-    <div class="card card-style" style="width: 500px; height: 3000px;">
-        <img class="card-img-top card-im-per" style="height: 500px;" src=@product.ImgLink alt="Image">
-        <div>
-            <h4 class="card-text">@product.Name</h4>
-            <p class="card-text">Year: @product.Year</p>
-            <p class="card-text">Number of Parts: @product.NumParts</p>
-            <p class="card-text">Price: $@product.Price</p>
-            <p class="card-text">Category: @product.Category</p>
-            <p class="card-text">Description: @product.Description</p>
-        </div>
-        </div>
 
-@foreach (var recProduct in recommendedProducts as List<Product>)
-{
-    <div class="card card-style" style="width: 500px; height: 3000px;">
-        <h4 class="card-text">@recProduct.Name</h4>
-        <p class="card-text">@recProduct.Description</p>
-        <p class="card-text">@recProduct.Price</p>
-        <img class="card-img-top card-im-per" style="height: 500px;" src="@recProduct.ImgLink" alt="RecProduct Image">
-    </div>
-}
 
 
 
