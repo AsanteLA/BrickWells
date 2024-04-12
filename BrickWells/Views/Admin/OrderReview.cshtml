@@ -1,4 +1,4 @@
-@model IEnumerable<BrickWells.Models.FraudPrediction>
+@model OrderListViewModel
 
 @{
     ViewData["Title"] = "Predictions";
@@ -26,28 +26,31 @@
     <td>Bank</td>
     <td>Type of Card</td>
     <td>Fraud</td>
-    <td class="prediction-cell">Prediction</td>
+    @* <td class="prediction-cell">Prediction</td> *@
 </tr>
 </thead>
-@foreach (var order in Model)
+@foreach (var order in Model.Orders)
 {
     <tbody class="table-group-divider">
     <tr>
-        <td>@order.Order.TransactionId</td>
-        <td>@order.Order.CustomerId</td>
-        <td>@order.Order.Date</td>
-        <td>@order.Order,DayOfWeek</td>
-        <td>@order.Order.Time</td>
-        <td>@order.Order.EntryMode</td>
-        <td>@order.Order.Amount</td>
-        <td>@order.Order.TypeOfTransaction</td>
-        <td>@order.Order.CountryOfTransaction</td>
-        <td>@order.Order.ShippingAddress</td>
-        <td>@order.Order.Bank</td>
-        <td>@order.Order.TypeOfCard</td>
-        <td>@order.Order.Fraud</td>
-        <td class="prediction-cell">@order.Prediction</td>
+        <td>@order.TransactionId</td>
+        <td>@order.CustomerId</td>
+        <td>@order.Date</td>
+        <td>@order.DayOfWeek</td>
+        <td>@order.Time</td>
+        <td>@order.EntryMode</td>
+        <td>@order.Amount</td>
+        <td>@order.TypeOfTransaction</td>
+        <td>@order.CountryOfTransaction</td>
+        <td>@order.ShippingAddress</td>
+        <td>@order.Bank</td>
+        <td>@order.TypeOfCard</td>
+        <td>@order.Fraud</td>
+        @* <td class="prediction-cell">@order.Prediction</td> *@
     </tr>
     </tbody>
 }
 </table>
+
+<div page-model="@Model.PaginationInfo" page-action="OrderReview" page-classes-enabled="true" page-class="btn" 
+     page-class-normal="btn-outline-dark" page-class-selected="btn-primary" class="btn-group pull-right m-1"></div>

@@ -173,88 +173,119 @@ public class AdminController : Controller
         return RedirectToAction("CustomerInfo");
     }
 
-    public IActionResult OrderReview()
-    {
-        var records = _repo.Orders.ToList();  // Fetch all records
-        var predictions = new List<FraudPrediction>();  // Your ViewModel for the view
-
-        // Dictionary mapping the numeric prediction to an animal type
-        var class_type_dict = new Dictionary<int, string>
-        {
-            { 0, "Not Fraud" },
-            { 1, "Fraud" }
-        };
-
-
-
-        foreach (var record in records)
-        {  
-            var input = new List<float>
-            {
-                (float) record.Time,
-                (float) record.TransactionId,
-                (float) record.CustomerId,
-                (float)(record.Amount ?? 0),
-                
-
-                //dummycode date
-                record.DayOfWeek == "Mon" ? 1 : 0,
-                record.DayOfWeek == "Sat" ? 1 : 0,
-                record.DayOfWeek == "Sun" ? 1 : 0,
-                record.DayOfWeek == "Thu" ? 1 : 0,
-                record.DayOfWeek == "Tue" ? 1 : 0,
-                record.DayOfWeek == "Wed" ? 1 : 0,
-
-                record.EntryMode == "PIN" ? 1 : 0,
-                record.EntryMode == "Tap" ? 1 : 0,
-
-
-                record.TypeOfTransaction == "Online" ? 1 : 0,
-                record.TypeOfTransaction == "POS" ? 1 : 0,
-
-                record.CountryOfTransaction == "India" ? 1 : 0,
-                record.CountryOfTransaction == "Russia" ? 1 : 0,
-                record.CountryOfTransaction == "USA" ? 1 : 0,
-                record.CountryOfTransaction == "UnitedKingdom" ? 1 : 0,
-
-                //Use CountryOfTransaction is Shipping Address is null
-                (record.ShippingAddress ?? record.CountryOfTransaction) == "India" ? 1 : 0,
-                (record.ShippingAddress ?? record.CountryOfTransaction) == "Russia" ? 1 : 0,
-                (record.ShippingAddress ?? record.CountryOfTransaction) == "USA" ? 1 : 0,
-                (record.ShippingAddress ?? record.CountryOfTransaction) == "UnitedKingdom" ? 1 : 0,
-
-                record.Bank == "HSBC" ? 1: 0,
-                record.Bank == "Halifax" ? 1: 0,
-                record.Bank == "Lloyds" ? 1: 0,
-                record.Bank == "Metro" ? 1: 0,
-                record.Bank == "Monzo" ? 1: 0,
-                record.Bank == "RBS" ? 1: 0,
-
-                record.TypeOfCard == "Visa" ? 1 : 0,
-
-            };
-            //converts them to an actuall type that passes it to the onnx
-            var inputTensor = new DenseTensor<float>(input.ToArray(), new[] { 1, input.Count });
-
-            var inputs = new List<NamedOnnxValue>
-            {
-                NamedOnnxValue.CreateFromTensor("float_input", inputTensor)
-            };
-            //this will run it
-            string predictionResult;
-            using (var results = _session.Run(inputs))
-            {
-                var prediction = results.FirstOrDefault(item => item.Name == "output_label")?.AsTensor<long>().ToArray();
-                predictionResult = prediction != null && prediction.Length > 0 ? class_type_dict.GetValueOrDefault((int)prediction[0], "Unknown") : "Error in prediction";
-            }
-            //this grabs the predection and appends it to the originakl table
-            predictions.Add(new FraudPrediction { Order = record, Prediction = predictionResult }); // Adds the animal information and prediction for that animal to AnimalPrediction viewmodel
-        }
-
-        return View(predictions);
-    }
+    // public IActionResult OrderReview()
+    // {
+    //     var records = _repo.Orders.ToList();  // Fetch all records
+    //     var predictions = new List<FraudPrediction>();  // Your ViewModel for the view
+    //
+    //     // Dictionary mapping the numeric prediction to an animal type
+    //     var class_type_dict = new Dictionary<int, string>
+    //     {
+    //         { 0, "Not Fraud" },
+    //         { 1, "Fraud" }
+    //     };
+    //
+    //
+    //
+    //     foreach (var record in records)
+    //     {  
+    //         var input = new List<float>
+    //         {
+    //             (float) record.Time,
+    //             (float) record.TransactionId,
+    //             (float) record.CustomerId,
+    //             (float)(record.Amount ?? 0),
+    //             
+    //
+    //             //dummycode date
+    //             record.DayOfWeek == "Mon" ? 1 : 0,
+    //             record.DayOfWeek == "Sat" ? 1 : 0,
+    //             record.DayOfWeek == "Sun" ? 1 : 0,
+    //             record.DayOfWeek == "Thu" ? 1 : 0,
+    //             record.DayOfWeek == "Tue" ? 1 : 0,
+    //             record.DayOfWeek == "Wed" ? 1 : 0,
+    //
+    //             record.EntryMode == "PIN" ? 1 : 0,
+    //             record.EntryMode == "Tap" ? 1 : 0,
+    //
+    //
+    //             record.TypeOfTransaction == "Online" ? 1 : 0,
+    //             record.TypeOfTransaction == "POS" ? 1 : 0,
+    //
+    //             record.CountryOfTransaction == "India" ? 1 : 0,
+    //             record.CountryOfTransaction == "Russia" ? 1 : 0,
+    //             record.CountryOfTransaction == "USA" ? 1 : 0,
+    //             record.CountryOfTransaction == "UnitedKingdom" ? 1 : 0,
+    //
+    //             //Use CountryOfTransaction is Shipping Address is null
+    //             (record.ShippingAddress ?? record.CountryOfTransaction) == "India" ? 1 : 0,
+    //             (record.ShippingAddress ?? record.CountryOfTransaction) == "Russia" ? 1 : 0,
+    //             (record.ShippingAddress ?? record.CountryOfTransaction) == "USA" ? 1 : 0,
+    //             (record.ShippingAddress ?? record.CountryOfTransaction) == "UnitedKingdom" ? 1 : 0,
+    //
+    //             record.Bank == "HSBC" ? 1: 0,
+    //             record.Bank == "Halifax" ? 1: 0,
+    //             record.Bank == "Lloyds" ? 1: 0,
+    //             record.Bank == "Metro" ? 1: 0,
+    //             record.Bank == "Monzo" ? 1: 0,
+    //             record.Bank == "RBS" ? 1: 0,
+    //
+    //             record.TypeOfCard == "Visa" ? 1 : 0,
+    //
+    //         };
+    //         //converts them to an actuall type that passes it to the onnx
+    //         var inputTensor = new DenseTensor<float>(input.ToArray(), new[] { 1, input.Count });
+    //
+    //         var inputs = new List<NamedOnnxValue>
+    //         {
+    //             NamedOnnxValue.CreateFromTensor("float_input", inputTensor)
+    //         };
+    //         //this will run it
+    //         string predictionResult;
+    //         using (var results = _session.Run(inputs))
+    //         {
+    //             var prediction = results.FirstOrDefault(item => item.Name == "output_label")?.AsTensor<long>().ToArray();
+    //             predictionResult = prediction != null && prediction.Length > 0 ? class_type_dict.GetValueOrDefault((int)prediction[0], "Unknown") : "Error in prediction";
+    //         }
+    //         //this grabs the prediction and appends it to the originakl table
+    //         predictions.Add(new FraudPrediction { Order = record, Prediction = predictionResult }); // Adds the animal information and prediction for that animal to AnimalPrediction viewmodel
+    //     }
+    //
+    //     return View(predictions);
+    // }
 
     //find a way to show new records fraud or not immediatly grab it from the record
+    
+    //Order Information and Methods
+    public IActionResult OrderReview(int pageNum)
+    {
+        int pageSize = 25;
+
+        var brickOrders = new OrderListViewModel()
+        {
+            Orders = _repo.Orders
+                .OrderBy(x => x.TransactionId)
+                .Skip((pageNum - 1) * pageSize)
+                .Take(pageSize),
+
+            PaginationInfo = new PaginationInfo
+            {
+                currentPage = pageNum,
+                itemsPerPage = pageSize,
+                totalItems = 500 // _repo.Orders.Count()
+            }
+        };
+        
+        return View(brickOrders);
+    }
+    
+    public IActionResult OrderDetails(int Id)
+    {
+        var orderDetails = _repo.Orders
+            .Single(x => x.TransactionId == Id);
+        
+        return View(orderDetails);
+    }
 
 
 

@@ -34,4 +34,6 @@ public partial class Order
 
     public int Fraud { get; set; }
     
+    // public string Prediction { get; set; }
+    
 }
