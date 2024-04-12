@@ -1,22 +1,22 @@
 @model OrderListViewModel
 
-<table class="table table-success table-striped">
-    <thead class="fw-bold table-light text-center">
+<table class="table table-striped">
+    <thead class="fw-bold table-dark">
     <tr>
-        <td>Transaction ID</td>
-        <td>Customer ID</td>
-        <td>Date </td>
-        @* <td>Day of The Week</td> *@
-        @* <td>Time</td> *@
-        @* <td>Entry Mode</td> *@
-        <td>Amount</td>
-        @* <td>Type of Transaction</td> *@
-        <td>Country of Transaction</td>
-        <td>Shipping Address</td>
-        @* <td>Bank</td> *@
-        @* <td>Type of Card</td> *@
-        <td>Fraud</td>
-        <td>Action</td>
+        <th>Transaction ID</th>
+        <th>Customer ID</th>
+        <th>Date </th>
+        @* <th>Day of The Week</th> *@
+        @* <th>Time</th> *@
+        @* <th>Entry Mode</th> *@
+        <th>Amount</th>
+        @* <th>Type of Transaction</th> *@
+        <th>Country of Transaction</th>
+        <th>Shipping Address</th>
+        @* <th>Bank</th> *@
+        @* <th>Type of Card</th> *@
+        <th>Fraud</th>
+        <th>Action</th>
     </tr>
     </thead>
     @foreach (var order in Model.Orders)
@@ -37,11 +37,12 @@
             @* <td>@order.TypeOfCard</td> *@
             <td>@order.Fraud</td>
             
-            <td><a class="btn btn-info" asp-controller="Admin" asp-action="OrderDetails" asp-route-id="@order.TransactionId">Review</a></td>
+            <td><a class="btn-primary-light-blue" asp-controller="Admin" asp-action="OrderDetails" asp-route-id="@order.TransactionId">Review</a></td>
         </tr>
         </tbody>
     }
 </table>
-
-<div page-model="@Model.PaginationInfo" page-action="OrderReview" page-classes-enabled="true" page-class="btn" 
-     page-class-normal="btn-outline-dark" page-class-selected="btn-primary" class="btn-group pull-right m-1"></div>
+<div class="text-center">
+    <div page-model="@Model.PaginationInfo" page-action="OrderReview" page-classes-enabled="true" page-class="btn" 
+         page-class-normal="btn-outline-dark" page-class-selected="btn-primary" class="btn-group pull-right m-1"></div>
+</div>

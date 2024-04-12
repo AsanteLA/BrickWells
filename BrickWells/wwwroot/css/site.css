@@ -192,7 +192,7 @@ header {
   padding-right: 30px!important; /* Increase padding below the navbar */
 }
 .navbar a:hover {
-  color: var(--corporate-pink)!important;
+  color: var(--footer-purple)!important;
   background-image: url('//Lego_imgs/yellow_lego_background.jpg')!important;
 }
 
@@ -265,6 +265,7 @@ header {
   border-radius: 10px; /* Adjust border-radius for more or less rounding */
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Optional: Add shadow for depth */
   padding: 20px; /* Adjust padding as needed */
+  text-align: center;
 }
 .sign-in_sign-up {
   background-image: url("../img/Lego_imgs/sharp_bg_bluemen.jpeg");
@@ -274,9 +275,24 @@ header {
   /*font-family: 'Noto Sans KR', sans-serif;*/
   /*font-weight: 300;*/
 }
-/*Button Functionality*/
-button {
-  cursor: pointer;
+.yikes-delete {
+  background-image: url("../img/Lego_imgs/error_page.jpeg");
+  background-size: cover; /* Cover the entire viewport */
+  background-position: top;
+  background-repeat: no-repeat; /* Prevent background image from repeating */
+  /*font-family: 'Noto Sans KR', sans-serif;*/
+  /*font-weight: 300;*/
+}
+.admin-img-container {
+  width: 250px; /* Set width and height for the container */
+  height: 250px;
+  overflow: hidden; /* Hide overflow for perfect circles */
+}
+
+.admin-img-container img {
+  object-fit: cover; /* Ensure the image covers the container */
+  width: 100%; /* Ensure the image fills the container */
+  height: 100%;
 }
 
 .card-style{
@@ -308,30 +324,116 @@ button {
   text-align: center;
 }
 
-/*button:hover {*/
-
-/*}*/
+button {
+  cursor: pointer;
+  border: 1px solid black; /* Add a thin border */
+}
 
 .btn-primary {
   background-color: var(--corporate-yellow);
-  color: var(--black);
-  border: none; /* Adding a black border */
-  width: 200px;
+  color: var(--white); /* Set text color to white */
+  text-shadow: -1px -1px 0 black,
+  1px -1px 0 black,
+  -1px 1px 0 black,
+  1px 1px 0 black;
+  width: 100px;
   height: 50px;
   font-size: 1em;
-  border-radius: 15px;
-  transition: .2s;
+  border-radius: 5px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Box shadow */
+  text-align: center; /* Centering the text */
+  display: inline-block; /* Ensures the link behaves like a block element */
+  line-height: 50px; /* Vertically center the text */
+  text-decoration: none; /* Remove default underline */
 }
+
 .btn-primary:hover {
-  background:url("../img/Lego_imgs/yellow_background_cropped.jpeg") no-repeat;
+  background: url("../img/Lego_imgs/yellow_background_cropped.jpeg") no-repeat;
   background-size: cover; /* Use the full image */
   background-position: center; /* Center the image */
-  font-weight: bold;
-  color: var(--black);
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Box shadow */
+  font-weight: normal;
   border-radius: 0; /* Squaring off the border */
+  color: var(--white); /* Ensure text color remains the same on hover */
 }
+.btn-primary-green {
+  background-color: var(--corporate-green);
+  color: var(--white); /* Set text color to white */
+  text-shadow: -1px -1px 0 black,
+  1px -1px 0 black,
+  -1px 1px 0 black,
+  1px 1px 0 black;
+  width: 100px;
+  height: 50px;
+  font-size: 1em;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Box shadow */
+  text-align: center; /* Centering the text */
+  display: inline-block; /* Ensures the link behaves like a block element */
+  line-height: 50px; /* Vertically center the text */
+  text-decoration: none; /* Remove default underline */
+}
+
+.btn-primary-green:hover {
+  background: url("../img/Lego_imgs/green_bg.jpeg") no-repeat;
+  background-size: cover; /* Use the full image */
+  background-position: center; /* Center the image */
+  font-weight: normal;
+  border-radius: 0; /* Squaring off the border */
+  color: var(--white); /* Ensure text color remains the same on hover */
+}
+.btn-primary-alert {
+  background-color: var(--corporate-red);
+  color: var(--white); /* Set text color to white */
+  text-shadow: -1px -1px 0 black,
+  1px -1px 0 black,
+  -1px 1px 0 black,
+  1px 1px 0 black;
+  width: 100px;
+  height: 50px;
+  font-size: 1em;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Box shadow */
+  text-align: center; /* Centering the text */
+  display: inline-block; /* Ensures the link behaves like a block element */
+  line-height: 50px; /* Vertically center the text */
+  text-decoration: none; /* Remove default underline */
+}
+
+.btn-primary-alert:hover {
+  background: url("../img/Lego_imgs/red_lego_background.jpg") no-repeat;
+  background-size: cover; /* Use the full image */
+  background-position: center; /* Center the image */
+  font-weight: normal;
+  border-radius: 0; /* Squaring off the border */
+  color: var(--white); /* Ensure text color remains the same on hover */
+}
+.btn-primary-light-blue {
+  background-color: var(--corporate-dark-azur);
+  color: var(--white); /* Set text color to white */
+  text-shadow: -1px -1px 0 black,
+  1px -1px 0 black,
+  -1px 1px 0 black,
+  1px 1px 0 black;
+  width: 100px;
+  height: 50px;
+  font-size: 1em;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Box shadow */
+  text-align: center; /* Centering the text */
+  display: inline-block; /* Ensures the link behaves like a block element */
+  line-height: 50px; /* Vertically center the text */
+  text-decoration: none; /* Remove default underline */
+}
+
+.btn-primary-light-blue:hover {
+  background: url("../img/Lego_imgs/light-blue.jpeg") no-repeat;
+  background-size: cover; /* Use the full image */
+  background-position: center; /* Center the image */
+  font-weight: normal;
+  border-radius: 0; /* Squaring off the border */
+  color: var(--white); /* Ensure text color remains the same on hover */
+}
+
 .btn-primary-cart {
   background-color: var(--corporate-yellow);
   color: var(--black);
@@ -341,15 +443,22 @@ button {
   height: 50px;
   font-size: 1em;
   border-radius: 15px;
-  transition: .2s;
   display: block;
   margin: 0 auto;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-
+  text-align: center; /* Centering the text */
   /* Positioning */
   position: absolute;
   bottom: 10px;
   margin-bottom: 10px; /* Add 10px margin to the bottom */
+}
+.btn-primary-cart:hover {
+  background:url("../img/Lego_imgs/yellow_background_cropped.jpeg") no-repeat;
+  background-size: cover; /* Use the full image */
+  background-position: center; /* Center the image */
+  font-weight: bold;
+  border-radius: 0; /* Squaring off the border */
+  color: var(--white); /* Ensure text color remains the same on hover */
 }
 .btn-alt {
   background-color: var(--black); /* Default image */
@@ -359,6 +468,7 @@ button {
   width: 200px; /* Adjust the width and height as needed */
   height: 70px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Box shadow */
+  text-align: center; /* Centering the text */
 }
 .transparent-button {
   background-color: transparent;
@@ -400,6 +510,7 @@ button {
   text-align: left; /* Align text to the left */
   margin-bottom: 5px; /* Adjust spacing between text and image */
 }
+
 /*.btn-alt:hover {*/
 /*  background-color: var(--color-blue-light);*/
 /*  color: var(--color-blue-darker);*/
@@ -518,11 +629,6 @@ footer {
   border-radius: 15px;
 }
 
-.darla-content p {
-  color: var(--color-blue-dark);
-  font-size: 1.25em;
-  font-family: 'Share Tech', sans-serif;
-}
 
 span {
   color: var(--color-yellow);
@@ -531,28 +637,6 @@ span {
 
 .back-button {
 
-}
-
-.darla-content button {
-  background-color: var(--color-blue-dark);
-  color: var(--color-white);
-  border: none;
-  width: 100px;
-  height: 50px;
-  font-size: 1.5em;
-  cursor: pointer;
-  border-radius: 15px;
-  transition: .2s;
-}
-
-.darla-content button:hover {
-  background-color: var(--color-yellow);
-  color: var(--color-blue-dark);
-}
-
-.darla-content span {
-  color: var(--color-white);
-  font-weight: bold;
 }
 
 .custom-sign-in{
