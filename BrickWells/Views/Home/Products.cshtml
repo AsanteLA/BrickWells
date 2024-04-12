@@ -5,24 +5,34 @@
 @using Microsoft.AspNetCore.Mvc.TagHelpers
 @model BrickListViewModel
 
-<h1>Browse Our Growing Catalog of Amazing Lego Sets</h1>
 
-    <div class="row m-1 p-1">
-        <div class="col-3">
-            <h4>Filter by Category:</h4>
-            <vc:category/>
+<div class="container">
+    <div class = row>
+        <br/>
+        <br/>
+        <div class="text-center">
+            <br/>
+            <h1 style="font-weight: bold">Browse Our Amazing Sets!</h1>
         </div>
+        <!-- Categories -->
+            <div class="col-md-3">
+                <vc:category/>
+            </div>
     
+        <!-- Products -->
+            @foreach (Product p in Model.Products)
+            {
+                <div class="col-md-3" style="margin-top: -8px">
+                    <partial name="ProductSummary" model="p"/>
+                </div>
+            }
+        </div>
+    </div>
 
-    <div class="container col-9">
-        @foreach(Product p in Model.Products)
-        {
-            <partial name="ProductSummary" model="p" />
-        }
-        
-        <div page-model="@Model.PaginationInfo" page-action="Products" page-classes-enabled="true"
-             page-class="btn" page-class-normal="btn-outline-dark" page-class-selected="btn-primary"
-             page-url-category="@Model.currentCategory" class="btn-group m-1"></div>
-    </div>
-    </div>
+<div class="text-center">
+    <div page-model="@Model.PaginationInfo" page-action="Products" page-classes-enabled="true"
+         page-class="btn" page-class-normal="btn-outline-dark" page-class-selected="btn-dark"
+         page-url-category="@Model.currentCategory" class="btn-group m-1"></div>
+</div>
+
 
