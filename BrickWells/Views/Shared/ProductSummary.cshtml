@@ -4,17 +4,15 @@
 
 <a href="@Url.Action("ProductDetails", "Home", new { id = Model.ProductId })" class="card-link">
     <div class="card card-style" style="width: 300px; height: 450px;">
-        <img class="card-img-top card-im-per" style="height: 10rem;" src=@Model.ImgLink alt="Image">
+        <img class="card-img-top" style="height: 10rem;" src=@Model.ImgLink alt="Image">
         <div>
             <h4 class="card-text">@Model.Name</h4>
-            <p class="card-text">Year: @Model.Year</p>
-            <p class="card-text">Number of Parts: @Model.NumParts</p>
-            <p class="card-text">Price: $@Model.Price</p>
             <p class="card-text">Category: @Model.Category</p>
+            <h4 class="card-text">Price: $@Model.Price</h4>
         </div>
-        
+
         <form id=@Model.ProductId method="post" asp-page="/Cart">
-            <input type="hidden" asp-for="ProductId "/>
+            <input type="hidden" asp-for="ProductId"/>
             <input type="hidden" name="returnUrl" value="@ViewContext.HttpContext.Request.PathAndQuery()"/>
             <button type="submit" class="btn-primary-cart">Add to Cart.</button>
         </form>

@@ -25,19 +25,17 @@
 <br>
 <br>
 <div class="container">
-  
-    <div class="text-center">
-        <h1 style="font-weight: bold">Best Sellers:</h1>
-    </div>
+    
     
     <div>
         @if (recommendedProducts != null)
         {
-            <h2 class="text-center m-5">Recommended Products</h2>
+            <h1 class="text-center m-5" style="font-weight: bold">Recommended Products:</h1>
             <div class="row">
                 @foreach (var recProduct in recommendedProducts)
-                {
-                    <div class="card  col-4 card-style" style="width: 18rem;">
+                {               
+                    <div class="card  col-4 card-style" style="width: 300px; height: 450px;">
+                    <a href="@Url.Action("ProductDetails", "Home", new { id = recProduct.ProductId })" class="card-link">
                         <div>
                             <img class="card-img-top" style="height: 10rem;" src="@recProduct.ImgLink" alt="@recProduct.Name">
                             <h4 class="card-title">@recProduct.Name</h4>
@@ -45,8 +43,9 @@
                             <h4 class="card-text">$@recProduct.Price</h4>
                             <button class="btn-primary-cart" type="submit">Add to Cart.</button>
                         </div>
-                            
+                    </a>
                     </div>
+
                 }
             </div>
                 
