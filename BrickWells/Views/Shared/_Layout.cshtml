@@ -8,7 +8,7 @@
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>@ViewData["Title"] - BrickWells</title>
-    <link rel="icon" type="image/x-icon" href="/img/Lego_imgs/heart-removebg.png">
+    <link rel="icon" type="image/x-icon" href="/img/Lego_imgs/rootbeer.png">
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css"/>
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true"/>
     <link rel="stylesheet" href="~/BrickWells.styles.css" asp-append-version="true"/>
@@ -74,18 +74,10 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Products">Products</a>
                         </li>
-                        @* <li class="nav-item"> *@
-                        @*     <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Test">Test</a> *@
-                        @* </li> *@
-                        
                     }
-                    
-                    
 
                 </ul>
-                @* <li class="col-6 navbar-text text-end"> *@
-                @*     <vc:cart-summary /> *@
-                @* </li> *@
+
                 <partial name="_LoginPartial"/>
             </div>
         </div>
@@ -111,23 +103,17 @@
     <div class="footer-columns">
         <div class="footer-column left-column">
             <img src="/img/Lego_imgs/block_party-trans.png" alt="Brickwell logo">
-            <h3>Address</h3>
-            <p>123 Main Street<br>City, State, Zip</p>
+            <h3>Rodeo Drive</h3>
+            <p>221c Baker Street<br>Tokyo, Japan, 58273</p>
         </div>
         <div class="footer-column middle-column">
 
         </div>
-        <div class="footer-column middle-column">
-            <h3>Links</h3>
+        <div class="footer-column right-column">
+            <h3>Additional Pages</h3>
             <a asp-area="" asp-controller="Home" asp-action="Index">Home</a>
             <a asp-area="" asp-controller="Home" asp-action="About">About</a>
             <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-        </div>
-        <div class="footer-column right-column">
-            <h3>External Links</h3>
-            <a href="#"><img src="icon1.png" alt="Icon 1"></a>
-            <a href="#"><img src="icon2.png" alt="Icon 2"></a>
-            <a href="#"><img src="icon3.png" alt="Icon 3"></a>
         </div>
     </div>
         <div class="container">

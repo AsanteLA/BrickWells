@@ -113,10 +113,6 @@ html {
   min-height: 100%;
 }
 
-/*body {*/
-/*  margin-bottom: 60px;*/
-/*}*/
-/*Personal Styling*/
 :root {
   --color-background-primary-white: #FFFFFF;
   --color-background-content: #FFD500;
@@ -140,7 +136,6 @@ html {
   font-family: 'Noto Sans KR', sans-serif;
 }
 body {
-  /*background-image: linear-gradient(to top, #a1c6ea, #b5cceb, #c6d3ec, #d5daed, #e1e2ed, #e7e7ef, #ededf0, #f2f2f2, #f5f5f5, #f8f8f8, #fcfcfc, #ffffff);*/
   font-family: 'Noto Sans KR', sans-serif;
   font-weight: 300;
 }
@@ -511,29 +506,6 @@ button {
   margin-bottom: 5px; /* Adjust spacing between text and image */
 }
 
-/*.btn-alt:hover {*/
-/*  background-color: var(--color-blue-light);*/
-/*  color: var(--color-blue-darker);*/
-/*}*/
-/*.carousel-item-prev,*/
-/*.carousel-item-next,*/
-/*.carousel-item.active {*/
-/*  display: flex;*/
-/*}*/
-
-/*!* control image height *!*/
-/*.card-img-top-250 {*/
-/*  max-height: 225px;*/
-/*  overflow: hidden;*/
-/*}*/
-
-/*!* smoother transitions *!*/
-/*.carousel-inner>.carousel-item.next.left,*/
-/*.carousel-inner>.carousel-item.prev.right {*/
-/*  transition: all 1s ease;*/
-/*}*/
-
-
 #cookieConsent {
   position: fixed;
   bottom: 0;
@@ -618,20 +590,7 @@ footer {
 
 
 
-
-
-/*Darla Holdovers*/
-
-
-.darla-content {
-  background-color: var(--color-background-content);
-  padding: 20px;
-  border-radius: 15px;
-}
-
-
 span {
-  color: var(--color-yellow);
   font-weight: bold;
 }
 
@@ -639,21 +598,15 @@ span {
 
 }
 
-.custom-sign-in{
-  border-radius: 1.25rem;
-}
 
 select {
   padding: 5px 10px;
   margin: 5px;
-  color: var(--color-white);
   border: 0;
-  background-color: var(--color-blue-dark);
   border-radius: 5px;
 }
 
 label {
-  color: var(--color-blue-dark);
   font-size: 1em;
   font-family: 'Open Sans', sans-serif;
   padding: 5px 5px;
@@ -664,7 +617,6 @@ td {
 }
 
 .card {
-  box-shadow: 0px 0px 5px var(--color-blue-light);
   margin: 10px;
   padding: 10px;
 }
@@ -675,64 +627,8 @@ td {
 #countdown {
   font-size: 2em;
   font-weight: bold;
-  color: var(--color-blue-dark);
 }
 
-.navbar {
-  background-color: var(--color-blue-dark);
-  color: var(--color-white);
-}
-
-.navbar a {
-  color: var(--color-white);
-}
-.navbar a:hover {
-  color: var(--color-background-content);
-}
-
-.navbar ul li {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-}
-.navbar .show {
-  color: var(--color-background-content);
-}
-
-.nav-link {
-  color: var(--color-white);
-  text-transform: uppercase;
-  font-size: .75em;
-}
-.nav-link:hover {
-  color: var(--color-background-content);
-}
-
-.nav-link:active {
-  color: var(--color-blue-light);
-}
-
-.nav-item {
-  width: auto;
-}
-
-a {
-  color: var(--color-blue-dark);
-  text-decoration: none;
-  transition: .2s;
-}
-a:hover {
-  color: var(--color-blue-darker);
-  text-decoration: none;
-}
-
-input[type="checkbox"] {
-  width: 1em;
-  height: 1rem;
-  margin: 0px 5px 0;
-  accent-color: var(--color-blue-dark);
-}
 
 .container {
   display: grid;
@@ -742,24 +638,6 @@ input[type="checkbox"] {
   padding-top: 0px!important;
 }
 
-
-/*.box.over {*/
-/*    border: 3px dotted #666;*/
-/*    background-color: var(--color-gray);*/
-/*    color: var(--color-white);*/
-/*}*/
-
-/*Drag and Drop*/
-[draggable] {
-  user-select: none;
-}
-.dropzone {
-  border: 2px solid black; /* Black border */
-  padding: 10px;
-  margin-top: 20px; /* Added margin for separation */
-  width: 200px; /* Added width for better visibility */
-  text-align: center; /* Center the text */
-}
 .schedule-container {
   display: flex;
   justify-content: space-between;
@@ -774,17 +652,5 @@ input[type="checkbox"] {
   flex-direction: column;
   align-items: start;
 }
-/*Testing trash css*/
-/*Testing Button*/
-.button-with-hover-image {
-  background-image: var(--corporate-yellow); /* Default image */
-  background-size: cover;
-  width: 200px; /* Adjust the width and height as needed */
-  height: 50px;
-}
 
-.button-with-hover-image:hover {
-  background-image: url("blue_lego_background.jpg"); /* Image to display on hover */
-}
-/*End testing Button*/
 
