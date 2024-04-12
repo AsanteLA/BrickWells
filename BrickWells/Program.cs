@@ -53,6 +53,7 @@ builder.Services.Configure<IdentityOptions>(options =>
 builder.Services.AddScoped<IBrickRepository, EFBrickRepository>();
 builder.Services.AddScoped<IOrderRepository, EFOrderRepository>();
 builder.Services.AddScoped<IAdminRepository, EFAdminRepository>();
+builder.Services.AddScoped<IUserRepository, EFUserRepository>();
 
 builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = false)
     .AddRoles<IdentityRole>()
