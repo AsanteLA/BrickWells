@@ -32,11 +32,11 @@
 
 @foreach (var recProduct in recommendedProducts as List<Product>)
 {
-    <div>
-        <h3>@recProduct.Name</h3>
-        <p>@recProduct.Description</p>
-        <p>@recProduct.Price</p>
-        <img src="@recProduct.ImgLink" alt="Product Image">
+    <div class="card card-style" style="width: 500px; height: 3000px;">
+        <h4 class="card-text">@recProduct.Name</h4>
+        <p class="card-text">@recProduct.Description</p>
+        <p class="card-text">@recProduct.Price</p>
+        <img class="card-img-top card-im-per" style="height: 500px;" src="@recProduct.ImgLink" alt="RecProduct Image">
     </div>
 }
 
