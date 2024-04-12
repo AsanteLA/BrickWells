@@ -132,9 +132,11 @@ html {
   --corporate-orange: #ff7700;
   --corporate-lime-green: #AFCA00;
   --corporate-dark-azur: #009BD7;
+  --footer-purple: #300c54;
   /*Font colors */
   --black: #000000;
   --white: #FFFFFF;
+
   font-family: 'Noto Sans KR', sans-serif;
 }
 body {
@@ -277,6 +279,33 @@ button {
   cursor: pointer;
 }
 
+.card-style{
+
+}
+/* Style for <img> elements */
+.card-style img {
+  margin-bottom: 10px; /* Adjust spacing between images */
+}
+
+/* Style for <h4> elements/ titles*/
+.card-style h4 {
+  color: var(--black);
+  font-weight: bold;
+  margin-bottom: 2px;
+}
+/* Style for <h4> elements/ titles*/
+.card-style h3 {
+  color: var(--black);
+  font-weight: bold;
+  margin-bottom: 2px;
+}
+
+/* Style for <p> elements */
+.card-style p {
+  color: var(--corporate-grey);
+  margin-bottom: 5px;
+}
+
 /*button:hover {*/
 
 /*}*/
@@ -290,12 +319,31 @@ button {
   font-size: 1em;
   border-radius: 15px;
   transition: .2s;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Box shadow */
 }
 .btn-primary:hover {
-  background:url("../img/Lego_imgs/yellow_lego_background.jpg") no-repeat;
+  background:url("../img/Lego_imgs/yellow_background_cropped.jpeg") no-repeat;
+  background-size: cover; /* Use the full image */
+  background-position: center; /* Center the image */
   font-weight: bold;
+  color: var(--black);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Box shadow */
+  border-radius: 0; /* Squaring off the border */
 }
-
+.btn-primary-cart {
+  background-color: var(--corporate-yellow);
+  color: var(--black);
+  border: none; /* Adding a black border */
+  width: 90%; /* Setting width to 90% of its container */
+  max-width: 300px; /* Limiting the maximum width */
+  height: 50px;
+  font-size: 1em;
+  border-radius: 15px;
+  transition: .2s;
+  display: block;
+  margin: 0 auto; /* Centering the button horizontally */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Box shadow */
+}
 .btn-alt {
   background-color: var(--black); /* Default image */
   background-size: cover;
@@ -303,15 +351,99 @@ button {
   color: white;
   width: 200px; /* Adjust the width and height as needed */
   height: 70px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Box shadow */
+}
+.transparent-button {
+  background-color: transparent;
+  cursor: pointer;
+  padding: 0; /* Remove padding */
+  outline: none; /* Remove default outline */
+  display: inline-block; /* Display as inline-block */
+  vertical-align: middle; /* Align vertically */
+}
+
+.transparent-button img {
+  display: block;
+  max-height: 6vh; /* Ensure image fits container */
+  margin: 0 auto; /* Center the image horizontally */
+}
+
+.transparent-button span {
+  display: block;
+  text-align: center; /* Center the text */
+}
+
+.registration-container {
+  text-align: center;
+}
+
+.registration-container a {
+  display: inline-block;
+  margin-top: 10px; /* Adjust spacing between image and text as needed */
+  text-decoration: none; /* Remove underline from the anchor */
+}
+
+.registration-container img {
+  display: block;
+  margin: 0 auto;
+}
+
+.registration-container .text-dark {
+  display: block;
+  text-align: left; /* Align text to the left */
+  margin-bottom: 5px; /* Adjust spacing between text and image */
 }
 /*.btn-alt:hover {*/
 /*  background-color: var(--color-blue-light);*/
 /*  color: var(--color-blue-darker);*/
 /*}*/
+/*.carousel-item-prev,*/
+/*.carousel-item-next,*/
+/*.carousel-item.active {*/
+/*  display: flex;*/
+/*}*/
+
+/*!* control image height *!*/
+/*.card-img-top-250 {*/
+/*  max-height: 225px;*/
+/*  overflow: hidden;*/
+/*}*/
+
+/*!* smoother transitions *!*/
+/*.carousel-inner>.carousel-item.next.left,*/
+/*.carousel-inner>.carousel-item.prev.right {*/
+/*  transition: all 1s ease;*/
+/*}*/
+
+
+#cookieConsent {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: var(--corporate-yellow);
+  opacity: .80;
+  font-weight: bold;
+  color: var(--black); /* Text color */
+  padding: 40px; /* Add padding */
+  box-shadow: 0 -2px 10px rgba(0,0,0,0.2); /* Add shadow */
+  z-index: 9999;
+}
+
+#cookieConsent .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+#cookieConsent a {
+  color: var(--corporate-blue); /* Link color */
+  text-decoration: underline;
+}
 
 footer {
-  background-color: var(--corporate-yellow);
-  color: #fff;
+  background-color: var(--footer-purple);
+  color: var(--white);
   padding: 20px 0;
   text-align: center;
 }
@@ -319,7 +451,7 @@ footer {
 .footer-columns {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: top;
   flex-wrap: wrap;
 }
 
@@ -331,7 +463,6 @@ footer {
 .footer-column.left-column {
   text-align: left;
   padding-left: 0px;
-  
 }
 
 .footer-column.middle-column {
@@ -343,19 +474,21 @@ footer {
 }
 
 .footer-column h3 {
-  margin-bottom: 10px;
+  font-weight: bold; /* Make the alt text bold */
+  margin-top: 10px;
   padding-left: 30px;
 }
 .footer-column p {
-  margin-bottom: 10px;
+  font-weight: bold; /* Make the alt text bold */
+  margin-top: 10px;
   padding-left: 30px;
 }
 
 .footer-column a {
-  color: #0f5132 !important;
+  color: var(--white) !important;
   text-decoration: none;
   display: block;
-  margin-bottom: 10px;
+  margin-top: 10px;
   padding-left: 30px;
 }
 .footer-column img {
@@ -371,54 +504,6 @@ footer {
 
 /*Darla Holdovers*/
 
-
-/*h1 {*/
-/*  color: var(--color-blue-dark);*/
-/*  font-size: 3em;*/
-/*  font-family: 'Quicksand', sans-serif;*/
-/*  font-weight: bolder;*/
-/*}*/
-
-/*h2 {*/
-/*  color: var(--color-blue);*/
-/*  font-size: 2em;*/
-/*  font-family: 'Quicksand', sans-serif;*/
-/*  font-weight: bolder;*/
-/*}*/
-
-/*h3 {*/
-/*  color: var(--color-blue);*/
-/*  font-size: 1.5em;*/
-/*  font-family: 'Quicksand', sans-serif;*/
-/*}*/
-
-/*h4 {*/
-/*  color: var(--color-blue);*/
-/*  font-size: 1.25em;*/
-/*  font-family: 'Open Sans', sans-serif;*/
-/*  text-transform: uppercase;*/
-/*}*/
-
-/*h5 {*/
-/*  color: var(--color-blue);*/
-/*  font-size: 1em;*/
-/*  font-family: 'Open Sans', sans-serif;*/
-/*  text-transform: uppercase;*/
-/*}*/
-
-/*h6 {*/
-/*  color: var(--color-blue);*/
-/*  font-size: 0.75em;*/
-/*  font-family: 'Open Sans', sans-serif;*/
-/*  text-transform: uppercase;*/
-/*}*/
-
-/*p {*/
-/*  color: var(--color-blue-dark);*/
-/*  font-size: 1em;*/
-/*  font-family: 'Open Sans', sans-serif;*/
-/*  padding: 10px 0px;*/
-/*}*/
 
 .darla-content {
   background-color: var(--color-background-content);

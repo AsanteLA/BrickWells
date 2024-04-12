@@ -5,13 +5,10 @@
     ViewData["Title"] = "Sign Up";
 }
 <div class="sign-in_sign-up">
-    @* <div class="gradient-box"> *@
-    @*     <h1 class="text-center">@ViewData["Title"]</h1> *@
-    @* </div> *@
-    <br/><br/>
+
+    <br/>
         <div class="container box">
             <div>
-                @*     <div class="col-md-4"> *@
                 <form id="registerForm" asp-route-returnUrl="@Model.ReturnUrl" method="post">
                     <br/>
                     <h2>Sign Up to be a Master Builder!</h2>
@@ -66,8 +63,6 @@
                     }
                 }
             </section>
-            @*     </div> *@
-            @* </div> *@
 
             @section Scripts {
                 <partial name="_ValidationScriptsPartial"/>

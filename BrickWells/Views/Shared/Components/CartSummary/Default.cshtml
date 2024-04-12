@@ -11,7 +11,9 @@
             @Model.CalculateTotal().ToString("C")
         </small>
     }
-    <a class="btn btn-sm btn-secondary navbar-btn" asp-page="/Cart" asp-route-returnUrl="@ViewContext.HttpContext.Request.PathAndQuery()">
-        <i class="fa fa-shopping-cart"></i>
+    @* <a class="btn btn-sm btn-secondary navbar-btn" asp-page="/Cart" asp-route-returnUrl="@ViewContext.HttpContext.Request.PathAndQuery()"> *@
+    <a class="transparent-button" asp-page="/Cart" asp-route-returnUrl="@ViewContext.HttpContext.Request.PathAndQuery()">
+        @* <i class="fa fa-shopping-cart"></i> *@
+        <img src="/img/Lego_imgs/shop-no-bg.png" style="max-height: 45px; margin-top: 3px" alt="Shopping Cart">
     </a>
 </div>
