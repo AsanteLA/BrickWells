@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using BrickWells.Models;
+using BrickWells.Models.ViewModels;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.ML.OnnxRuntime.Tensors;
 using Microsoft.ML;
@@ -30,13 +31,25 @@ public class AdminController : Controller
     }
 
     //product Information and Methods
-    public IActionResult ProductList()
+    public IActionResult ProductList(int pageNum)
     {
-        var products = _repo.Products
-            .OrderBy(x => x.ProductId)
-            .ToList();
-        
-        return View(products);
+        int pageSize = 5;
+
+        var brickProducts = new ProductListViewModel
+        {
+            Products = _repo.Products
+                .OrderBy(x => x.ProductId)
+                .Skip((pageNum - 1) * pageSize)
+                .Take(pageSize),
+
+            PaginationInfo = new PaginationInfo
+            {
+                currentPage = pageNum,
+                itemsPerPage = pageSize,
+                totalItems = _repo.Products.Count()
+            }
+        };
+        return View(brickProducts);
     }
     
     [HttpGet]
@@ -93,15 +106,36 @@ public class AdminController : Controller
         return RedirectToAction("ProductList");
     }
     
+    public IActionResult ProductDetails(int Id)
+    {
+        var productDetails = _repo.Products
+            .Single(x => x.ProductId == Id);
+        
+        return View(productDetails);
+    }
+    
     
     //Customer Information and Methods
-    public IActionResult CustomerInfo()
+    public IActionResult CustomerInfo(int pageNum)
     {
-        var customers = _repo.Customers
-            .OrderBy(x => x.CustomerId)
-            .ToList();
-        
-        return View(customers);
+        int pageSize = 25;
+
+        var brickCustomers = new CustomerListViewModel()
+        {
+            Customers = _repo.Customers
+                .OrderBy(x => x.CustomerId)
+                .Skip((pageNum - 1) * pageSize)
+                .Take(pageSize),
+
+            PaginationInfo = new PaginationInfo
+            {
+                currentPage = pageNum,
+                itemsPerPage = pageSize,
+                totalItems = 500 // _repo.Orders.Count()
+            }
+        };
+
+        return View(brickCustomers);
     }
     
 

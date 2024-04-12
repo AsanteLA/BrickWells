@@ -1,9 +1,11 @@
 using BrickWells.Models;
 using BrickWells.Models.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BrickWells.Controllers;
 
+[Authorize]
 public class OrderController : Controller
 {
     private IOrderRepository repository;

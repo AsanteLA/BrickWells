@@ -37,5 +37,6 @@ public partial class Product
     [Required(ErrorMessage = "Please enter the product's category")]
     public string Category { get; set; }
     public string? SubCategory { get; set; }
-    public int Rank { get; set; }
+    
+    public string Rank { get; set; }
 }

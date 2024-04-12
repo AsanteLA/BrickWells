@@ -55,7 +55,7 @@ builder.Services.AddScoped<IOrderRepository, EFOrderRepository>();
 builder.Services.AddScoped<IAdminRepository, EFAdminRepository>();
 builder.Services.AddScoped<IUserRepository, EFUserRepository>();
 
-builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = false)
+builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
     .AddRoles<IdentityRole>()
     .AddEntityFrameworkStores<ApplicationDbContext>();
 
@@ -103,7 +103,7 @@ app.UseSession();
 app.UseRouting();
 
 app.UseAuthorization();
-app.UseAuthorization();
+// app.UseAuthorization();
 
 // app.UseEndpoints(endpoints =>
 //     {
