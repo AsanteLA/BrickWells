@@ -22,7 +22,7 @@ public class PaginationTagHelper : TagHelper
     public ViewContext? ViewContext { get; set; }
     public string? PageAction { get; set; } // what action are we on in out controller
     
-    [HtmlAttributeName(DictionaryAttributePrefix = "page-url-")] // the prefix for the dictionary
+    [HtmlAttributeName(DictionaryAttributePrefix = "page-url-")] // the prefix for the dictionary attribute
     public Dictionary<string, object> PageUrlValues { get; set; } = new Dictionary<string, object>();
     public PaginationInfo PageModel { get; set; } // the information about the page
     

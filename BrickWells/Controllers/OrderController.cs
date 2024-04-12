@@ -1,10 +1,9 @@
 using BrickWells.Models;
 using BrickWells.Models.ViewModels;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BrickWells.Controllers;
-[Authorize]
+
 public class OrderController : Controller
 {
     private IOrderRepository repository;
@@ -29,8 +28,8 @@ public class OrderController : Controller
         if(ModelState.IsValid)
         {
             repository.AddCustomer(response);
-            int customerId = response.CustomerId;
-            return RedirectToAction("Checkout","Order", new {customerId = customerId});
+            TempData["CustomerId"] = response.CustomerId; // Store CustomerId in TempData
+            return RedirectToAction("Checkout");
         }
         else
         {
@@ -39,7 +38,7 @@ public class OrderController : Controller
     }
     
     [HttpPost]
-    public IActionResult Checkout(Order order, int customerId)
+    public IActionResult Checkout(Order order)
     {
         if (cart.Lines.Count() == 0)
         {
@@ -47,25 +46,17 @@ public class OrderController : Controller
         }
         if (ModelState.IsValid)
         {
-            // order.Amount = cart.Lines.Sum(x => x.Product.Price * x.Quantity);
-            repository.SaveOrder(order);
-            
-            int transactionId = order.TransactionId;
-            
-            foreach (var line in cart.Lines)
+            if (TempData["CustomerId"] != null && int.TryParse(TempData["CustomerId"].ToString(), out int customerId))
             {
-                LineItem lineItem = new LineItem
-                {
-                    TransactionId = transactionId,
-                    ProductId = line.Product.ProductId, // Retrieve ProductId from CartLine
-                    Qty = line.Quantity,
-                    Rating = 0 // Assuming default rating is 0
-                };
-
-                // Add line item to repository or context
-                repository.AddLineItem(lineItem);
+                order.CustomerId = customerId;
             }
-            
+            // else
+            // {
+            //     // Handle case where CustomerId is not found in TempData
+            // }
+            // order.Amount = cart.Lines.Sum(x => x.Product.Price * x.Quantity);
+            // order.CustomerId = response.CustomerId;
+            repository.SaveOrder(order);
             cart.Clear();
             return RedirectToPage("/Completed", new { orderId = order.TransactionId });
         }

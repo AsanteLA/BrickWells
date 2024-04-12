@@ -5,10 +5,20 @@ namespace BrickWells.Components;
 
 public class CategoryViewComponent : ViewComponent
 {
-
-        
-        public string Invoke ()
+        private IBrickRepository _repo;
+        //Constructor
+        public CategoryViewComponent(IBrickRepository temp)
         {
-                return "Hello from the Navigation Menu";
+                _repo = temp;
+        }
+        public IViewComponentResult Invoke ()
+        {
+                ViewBag.SelectedCategory = RouteData?.Values["Category"];
+                
+                var Categories = _repo.Products
+                        .Select(x => x.Category)
+                        .Distinct()
+                        .OrderBy(x => x);
+                return View(Categories);
         }
 }

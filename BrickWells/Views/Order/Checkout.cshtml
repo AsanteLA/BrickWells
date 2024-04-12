@@ -23,7 +23,6 @@
         <option value="CVC">CVC</option>
         <option value="PIN">PIN</option>
     </select>
-    <br/><br/>
     <input type="hidden" asp-for="Amount" value=""/>
     <br/><br/>
     <input type="hidden" asp-for="TypeOfTransaction" value="Online"/>
@@ -55,5 +54,7 @@
         <input class="btn btn-primary" type="submit" 
                value="Complete Order" />
     </div>
+    
+    <div asp-validation-summary="All"></div>
     
 </form>
