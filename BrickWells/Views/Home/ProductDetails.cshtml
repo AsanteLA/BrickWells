@@ -7,16 +7,28 @@
 <div class="card">
     <div class="card-header">
         <h4>@product.Name</h4>
+        <p>meh</p>
     </div>
     <div class="card-body">
         <img src="@product.ImgLink" alt="">
         <ul class="list-group">
-            <li class="list-group-item">@product.Price</li>
-            <li class="list-group-item">@product.Year</li>
-            <li class="list-group-item">@product.Category</li>
+            <li>@product.Price</li>
+            <li>@product.Year</li>
+            <li>@product.Category</li>
         </ul>
     </div>
 </div>
+    <div class="card card-style" style="width: 500px; height: 3000px;">
+        <img class="card-img-top card-im-per" style="height: 500px;" src=@product.ImgLink alt="Image">
+        <div>
+            <h4 class="card-text">@product.Name</h4>
+            <p class="card-text">Year: @product.Year</p>
+            <p class="card-text">Number of Parts: @product.NumParts</p>
+            <p class="card-text">Price: $@product.Price</p>
+            <p class="card-text">Category: @product.Category</p>
+            <p class="card-text">Description: @product.Description</p>
+        </div>
+        </div>
 
 @foreach (var recProduct in recommendedProducts as List<Product>)
 {
