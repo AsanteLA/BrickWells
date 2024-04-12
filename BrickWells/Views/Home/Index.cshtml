@@ -35,30 +35,30 @@
     </div>
 </div>
 
-<div class="container-fluid mt-3">
-    <h1 class="text-center">Popular Products:</h1>
-    @foreach (Product p in Model.Products)
-    {
-        <partial name="ProductSummary" model="p"/>
-    }
-</div>
-
-<div class="container-fluid">
-    <h1>Customer</h1>
-    <p>@customer.FirstName</p>
-    <p>@customer.LastName</p>
-    <p>@customer.Age</p>
-</div>
-
-
-<div class="container-fluid">
-    <h1>Order</h1>
-    <p>@order.Date</p>
-    <p>@order.TransactionId</p>
-
-</div>
-
-
+@* <div class="container-fluid mt-3"> *@
+@*     <h1 class="text-center">Popular Products:</h1> *@
+@*     @foreach (Product p in Model.Products) *@
+@*     { *@
+@*         <partial name="ProductSummary" model="p"/> *@
+@*     } *@
+@* </div> *@
+@* *@
+@* <div class="container-fluid"> *@
+@*     <h1>Customer</h1> *@
+@*     <p>@customer.FirstName</p> *@
+@*     <p>@customer.LastName</p> *@
+@*     <p>@customer.Age</p> *@
+@* </div> *@
+@* *@
+@* *@
+@* <div class="container-fluid"> *@
+@*     <h1>Order</h1> *@
+@*     <p>@order.Date</p> *@
+@*     <p>@order.TransactionId</p> *@
+@* *@
+@* </div> *@
+@* *@
+@* *@
 @if (recommendedProducts != null)
 {
     <h2 class="text-center m-5">Recommended Products</h2>
