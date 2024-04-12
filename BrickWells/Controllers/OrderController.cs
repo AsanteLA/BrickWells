@@ -1,9 +1,10 @@
 using BrickWells.Models;
 using BrickWells.Models.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BrickWells.Controllers;
-
+[Authorize]
 public class OrderController : Controller
 {
     private IOrderRepository repository;
@@ -28,7 +29,8 @@ public class OrderController : Controller
         if(ModelState.IsValid)
         {
             repository.AddCustomer(response);
-            return RedirectToAction("Checkout");
+            int customerId = response.CustomerId;
+            return RedirectToAction("Checkout","Order", new {customerId = customerId});
         }
         else
         {
@@ -37,7 +39,7 @@ public class OrderController : Controller
     }
     
     [HttpPost]
-    public IActionResult Checkout(Order order)
+    public IActionResult Checkout(Order order, int customerId)
     {
         if (cart.Lines.Count() == 0)
         {
@@ -47,6 +49,23 @@ public class OrderController : Controller
         {
             // order.Amount = cart.Lines.Sum(x => x.Product.Price * x.Quantity);
             repository.SaveOrder(order);
+            
+            int transactionId = order.TransactionId;
+            
+            foreach (var line in cart.Lines)
+            {
+                LineItem lineItem = new LineItem
+                {
+                    TransactionId = transactionId,
+                    ProductId = line.Product.ProductId, // Retrieve ProductId from CartLine
+                    Qty = line.Quantity,
+                    Rating = 0 // Assuming default rating is 0
+                };
+
+                // Add line item to repository or context
+                repository.AddLineItem(lineItem);
+            }
+            
             cart.Clear();
             return RedirectToPage("/Completed", new { orderId = order.TransactionId });
         }

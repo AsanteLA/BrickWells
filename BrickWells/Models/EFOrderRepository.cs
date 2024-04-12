@@ -27,4 +27,12 @@ public class EFOrderRepository : IOrderRepository
         _context.Customers.Add(customer);
         _context.SaveChanges();
     }
+    
+    public void AddLineItem(LineItem lineItem)
+    {
+        _context.LineItems.Add(lineItem);
+        _context.SaveChanges();
+    }
+    
+    
 }

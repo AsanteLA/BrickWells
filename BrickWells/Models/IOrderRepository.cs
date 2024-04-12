@@ -9,4 +9,5 @@ public interface IOrderRepository
     public void SaveOrder(Order order);
     
     public void AddCustomer(Customer customer);
+    public void AddLineItem(LineItem lineItem);
 }

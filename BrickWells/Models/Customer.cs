@@ -26,4 +26,5 @@ public partial class Customer
 
     [Required(ErrorMessage = "Please enter a valid Age")]
     public double Age { get; set; }
+    public string? Email { get; set; }
 }

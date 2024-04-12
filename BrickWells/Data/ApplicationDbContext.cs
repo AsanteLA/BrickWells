@@ -47,7 +47,7 @@ public partial class BrickContext : DbContext
         modelBuilder.Entity<LineItem>(entity =>
         {
             
-            entity.HasNoKey();
+            entity.HasKey(li => new { li.TransactionId, li.ProductId });
 
 
             entity.Property(e => e.ProductId).HasColumnName("product_ID");
