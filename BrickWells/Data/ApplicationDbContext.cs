@@ -25,6 +25,7 @@ public partial class BrickContext : DbContext
     public DbSet<Order> Orders { get; set; }
     public DbSet<Product> Products { get; set; }
     public DbSet<Customer> Customers { get; set; }
+    public DbSet<ItemBasedRec> ItemBasedRecs { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -93,6 +94,25 @@ public partial class BrickContext : DbContext
             entity.Property(e => e.SecondaryColor).HasColumnName("secondary_color");
             entity.Property(e => e.Year).HasColumnName("year");
             entity.Property(e => e.SubCategory).HasColumnName("sub_category");
+        });
+        
+        modelBuilder.Entity<ItemBasedRec>(entity =>
+        {
+            entity.HasNoKey();
+            entity.ToTable("item_based_recs");
+
+            entity.Property(e => e.ProductId).HasColumnName("product_ID");
+            entity.Property(e => e.Name).HasColumnName("name");
+            entity.Property(e => e.FirstRec).HasColumnName("first_rec");
+            entity.Property(e => e.SecondRec).HasColumnName("second_rec");
+            entity.Property(e => e.ThirdRec).HasColumnName("third_rec");
+            entity.Property(e => e.FourthRec).HasColumnName("fourth_rec");
+            entity.Property(e => e.FifthRec).HasColumnName("fifth_rec");
+            entity.Property(e => e.SixthRec).HasColumnName("sixth_rec");
+            entity.Property(e => e.SeventhRec).HasColumnName("seventh_rec");
+            entity.Property(e => e.EighthRec).HasColumnName("eighth_rec");
+            entity.Property(e => e.NinthRec).HasColumnName("ninth_rec");
+            entity.Property(e => e.TenthRec).HasColumnName("tenth_rec");
         });
 
         OnModelCreatingPartial(modelBuilder);

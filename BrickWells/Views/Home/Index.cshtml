@@ -1,8 +1,81 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
+    var customer = ViewBag.Customer as Customer;
+    var order = ViewBag.Orders as Order;
+    var transaction = ViewBag.TransactionId as LineItem;
+    var recommendedProducts = ViewBag.RecommendedProducts as List<Product>;
 }
+@model BrickListViewModel;
 
-<div class="text-center">
-    <h1 class="display-4">Welcome to BrickWells!</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="gradient-box-home">
+  <div>
+    <img src="/img/Lego_imgs/spaceman.png" alt="spaceman" style="width: 100vh; padding-top: 10vh;">
+  </div>
+  <div class="yellow-box">
+    <div class="yellow-box-letters">
+    <h4>New Arrival</h4>
+    <h2 style="font-weight: bold">Discover New Possibilities</h2>
+    <p>Embark on a cosmic journey with the Space Astronaut set, where every piece connects you to the vast universe, 
+    launching your imagination beyond the stars as you build.</p>
+    </div>
+    <button class="btn-alt"> Get Started </button>
+  </div>
 </div>
+<br>
+<br>
+<br>
+<div class="container">
+  
+    <div class="text-center">
+        <h1 style="font-weight: bold">Best Sellers:</h1>
+        <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    </div>
+    <div style="overflow-x:auto;width:800px">
+        GridView here
+    </div>
+</div>
+
+<div class="container-fluid mt-3">
+    <h1 class="text-center">Popular Products:</h1>
+    @foreach (Product p in Model.Products)
+    {
+        <partial name="ProductSummary" model="p"/>
+    }
+</div>
+
+<div class="container-fluid">
+    <h1>Customer</h1>
+    <p>@customer.FirstName</p>
+    <p>@customer.LastName</p>
+    <p>@customer.Age</p>
+</div>
+
+
+<div class="container-fluid">
+    <h1>Order</h1>
+    <p>@order.Date</p>
+    <p>@order.TransactionId</p>
+
+</div>
+
+
+@if (recommendedProducts != null)
+{
+    <h2 class="text-center m-5">Recommended Products</h2>
+    <div class="row">
+        @foreach (var recProduct in recommendedProducts)
+        {
+            <div class="card">
+                <div class="card-header">
+                    <h6>@recProduct.Name</h6>
+                </div>
+                <div class="card-body">
+                    <img src="@recProduct.ImgLink" alt="@recProduct.Name">
+                    <p>$ @recProduct.Price</p>
+                    <p>@recProduct.Category</p>
+                </div>
+            </div>
+        }
+    </div>
+    
+}
