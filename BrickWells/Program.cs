@@ -112,7 +112,7 @@ app.UseAuthorization();
 app.MapControllerRoute(name:"default", pattern:"{controller=Home}/{action=Index}/{id?}");
 app.MapControllerRoute("pagenumandtype", "{category}/{pageNum}", new {Controller = "Home", action = "Products" }); 
 app.MapControllerRoute("pagination", "{pageNum}", new { Controller = "Home", action = "Products", pageNum = 1 });
-app.MapControllerRoute("projectType", "{category}", new { Controller = "Home", action = "Products", pageNum = 1 });
+app.MapControllerRoute("category", "{category}", new { Controller = "Home", action = "Products", pageNum = 1 });
 app.MapDefaultControllerRoute();
 
 app.MapRazorPages();

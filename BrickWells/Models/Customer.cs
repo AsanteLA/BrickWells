@@ -26,4 +26,7 @@ public partial class Customer
 
     [Required(ErrorMessage = "Please enter a valid Age")]
     public double Age { get; set; }
+    
+    // Navigation property for orders
+    // public ICollection<Order> Orders { get; set; }
 }

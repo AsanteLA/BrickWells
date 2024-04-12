@@ -28,7 +28,7 @@ public class HomeController : Controller
         return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
     }
 
-    public IActionResult Products(int pageNum, string? category, string? color)
+    public IActionResult Products(int pageNum, string? category)
     {
         int pageSize = 3;
 
@@ -44,7 +44,7 @@ public class HomeController : Controller
             {
                 currentPage = pageNum,
                 itemsPerPage = pageSize,
-                totalItems = category == null ? _repo.Products.Count() : _repo.Products.Where(x => x.Category == category).Count()
+                totalItems = category == null ? _repo.Products.Count() : _repo.Products.Where(x => category == null || x.Category == category).Count()
             },
 
             currentCategory = category

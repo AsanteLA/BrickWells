@@ -28,6 +28,7 @@ public class OrderController : Controller
         if(ModelState.IsValid)
         {
             repository.AddCustomer(response);
+            TempData["CustomerId"] = response.CustomerId; // Store CustomerId in TempData
             return RedirectToAction("Checkout");
         }
         else
@@ -45,7 +46,16 @@ public class OrderController : Controller
         }
         if (ModelState.IsValid)
         {
+            if (TempData["CustomerId"] != null && int.TryParse(TempData["CustomerId"].ToString(), out int customerId))
+            {
+                order.CustomerId = customerId;
+            }
+            // else
+            // {
+            //     // Handle case where CustomerId is not found in TempData
+            // }
             // order.Amount = cart.Lines.Sum(x => x.Product.Price * x.Quantity);
+            // order.CustomerId = response.CustomerId;
             repository.SaveOrder(order);
             cart.Clear();
             return RedirectToPage("/Completed", new { orderId = order.TransactionId });

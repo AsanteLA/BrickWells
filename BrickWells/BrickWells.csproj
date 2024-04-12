@@ -26,4 +26,8 @@
         <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="8.0.2" />
     </ItemGroup>
 
+    <ItemGroup>
+      <_ContentIncludedByDefault Remove="Views\Shared\Components\Color\Default.cshtml" />
+    </ItemGroup>
+
 </Project>

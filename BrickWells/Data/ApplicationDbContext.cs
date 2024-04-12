@@ -92,6 +92,7 @@ public partial class BrickContext : DbContext
             entity.Property(e => e.ProductId).HasColumnName("product_ID");
             entity.Property(e => e.SecondaryColor).HasColumnName("secondary_color");
             entity.Property(e => e.Year).HasColumnName("year");
+            entity.Property(e => e.SubCategory).HasColumnName("sub_category");
         });
 
         OnModelCreatingPartial(modelBuilder);
