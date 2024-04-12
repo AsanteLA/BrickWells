@@ -280,6 +280,7 @@ button {
 }
 
 .card-style{
+  border: 15px;
 }
 /* Style for <img> elements */
 .card-style img {
