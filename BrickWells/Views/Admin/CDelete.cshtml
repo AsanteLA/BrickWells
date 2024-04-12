@@ -1,14 +1,18 @@
 @model Customer
+<div class="container box">
+    <div>
+        <br/>
+        <h2>CAUTION</h2>
+        <h3>Are you sure you would like to delete</h3>
+        <h4>Customer Name: @Model.FirstName @Model.LastName?</h4>
+        <br/>
+        <form method="post">
 
-<h2>Confirm Deletion.</h2>
-<br />
-<h3>Customer Name: @Model.FirstName</h3>
+            <input type="hidden" asp-for="CustomerId"/> @*You always need to add the application ID to the form for the post method to work*@
 
-<form method="post">
-
-    <input type="hidden" asp-for="CustomerId" /> @*You always need to add the application ID to the form for the post method to work*@
-
-    @* Buttons for delete an cancelation *@
-    <button type="submit" class="btn btn-outline-danger">Delete</button>
-    <a class="btn btn-secondary" asp-controller="Admin" asp-action="CustomerInfo">Cancel</a>
-</form>
+            @* Buttons for delete an cancelation *@
+            <button type="submit" class="btn-primary-alert">Delete</button>
+            <a class="btn-primary-light-blue" asp-controller="Admin" asp-action="CustomerInfo">Cancel</a>
+        </form>
+    </div>
+</div>

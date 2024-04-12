@@ -1,7 +1,7 @@
 @model CustomerListViewModel
 
-<table class="table table-success table-striped">
-    <thead class="fw-bold table-light text-center">
+<table class="table table-striped">
+    <thead class="fw-bold table-dark text-center">
         <tr>
             <td>Customer ID</td>
             <td>First Name</td>
@@ -27,12 +27,13 @@
                 <td>@customer.Age</td>
 
                 
-                <td><a class="btn btn-info" asp-controller="Admin" asp-action="CEdit" asp-route-id="@customer.CustomerId">Edit</a></td>
-                <td><a class="btn btn-danger" asp-controller="Admin" asp-action="CDelete" asp-route-id="@customer.CustomerId">Delete</a></td>
+                <td><a class="btn-primary-light-blue" asp-controller="Admin" asp-action="CEdit" asp-route-id="@customer.CustomerId">Edit</a></td>
+                <td><a class="btn-primary-alert" asp-controller="Admin" asp-action="CDelete" asp-route-id="@customer.CustomerId">Delete</a></td>
             </tr>
             </tbody>
         }
 </table>
-
-<div page-model="@Model.PaginationInfo" page-action="CustomerInfo" page-classes-enabled="true" page-class="btn" 
-     page-class-normal="btn-outline-dark" page-class-selected="btn-primary" class="btn-group pull-right m-1"></div>
+<div class="text-center">
+    <div page-model="@Model.PaginationInfo" page-action="CustomerInfo" page-classes-enabled="true" page-class="btn" 
+         page-class-normal="btn-outline-dark" page-class-selected="btn" class="btn-group pull-right m-1"></div>
+</div>

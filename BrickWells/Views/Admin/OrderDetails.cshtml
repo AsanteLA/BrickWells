@@ -3,29 +3,32 @@
 }
 @model Order
 
-<h4>Looking at order @Model.TransactionId</h4>
 
-<div class="row">
-    <div class="card">
-        <div class="card-header">
-            Transaction ID: @Model.TransactionId
-        </div>
-        <div class="card-body">
-            <ul class="list-group">
-                <li class="list-group-item">@Model.Amount</li>
-                <li class="list-group-item">@Model.Bank</li>
-                <li class="list-group-item">@Model.Date</li>
-                <li class="list-group-item">Fraud: @Model.Fraud</li>
-                <li class="list-group-item">@Model.CustomerId</li>
-                <li class="list-group-item">@Model.EntryMode</li>
-                <li class="list-group-item">@Model.ShippingAddress</li>
-                <li class="list-group-item">@Model.DayOfWeek</li>
-                <li class="list-group-item">@Model.TypeOfCard</li>
-                <li class="list-group-item">@Model.TypeOfTransaction</li>
-            </ul>
+<div class = container>
+    <h4>Looking at order @Model.TransactionId</h4>
+    <div class="row">
+        <div class="card">
+            <div class="card-header">
+                Transaction ID: @Model.TransactionId
+            </div>
+            <div class="card-body">
+                <ul class="list-group">
+                    <li class="list-group-item">@Model.Amount</li>
+                    <li class="list-group-item">@Model.Bank</li>
+                    <li class="list-group-item">@Model.Date</li>
+                    <li class="list-group-item">Fraud: @Model.Fraud</li>
+                    <li class="list-group-item">@Model.CustomerId</li>
+                    <li class="list-group-item">@Model.EntryMode</li>
+                    <li class="list-group-item">@Model.ShippingAddress</li>
+                    <li class="list-group-item">@Model.DayOfWeek</li>
+                    <li class="list-group-item">@Model.TypeOfCard</li>
+                    <li class="list-group-item">@Model.TypeOfTransaction</li>
+                </ul>
+            </div>
         </div>
     </div>
+    
+    <button type="button" class="btn-primary-green align-middle">Approve</button>
+    <button type="button" class="btn-primary-alert align-middle">Deny</button>
+    <br/>
 </div>
-
-<a class="btn btn-outline-primary">Approve</a>
-<a class="btn btn-outline-danger">Deny</a>
