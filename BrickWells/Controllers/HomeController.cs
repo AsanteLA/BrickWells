@@ -225,9 +225,9 @@ public class HomeController : Controller
 
                                 // Set ViewBag variables for the view
                                 ViewBag.RecommendedProducts = recommendedProducts;
-                                ViewBag.TransactionId = transactionId;
-                                ViewBag.Customer = customerQuery;
-                                ViewBag.Orders = recentOrder;
+                                // ViewBag.TransactionId = transactionId;
+                                // ViewBag.Customer = customerQuery;
+                                // ViewBag.Orders = recentOrder;
                             }
                         }
                     }

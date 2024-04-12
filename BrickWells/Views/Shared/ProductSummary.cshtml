@@ -3,8 +3,8 @@
 @model Product
 
 <a href="@Url.Action("ProductDetails", "Home", new { id = Model.ProductId })" class="card-link">
-    <div class="card" style="width: 18rem;" >
-        <img class="card-img-top" style="height: 10rem;" src=@Model.ImgLink alt="Image">
+    <div class="card card-style" style="width: 300px; height: 450px;">
+        <img class="card-img-top card-im-per" style="height: 10rem;" src=@Model.ImgLink alt="Image">
         <div>
             <h4 class="card-text">@Model.Name</h4>
             <p class="card-text">Year: @Model.Year</p>

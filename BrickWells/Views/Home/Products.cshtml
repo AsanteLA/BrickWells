@@ -5,22 +5,32 @@
 @using Microsoft.AspNetCore.Mvc.TagHelpers
 @model BrickListViewModel
 
-<h1>Browse Our Growing Catalog of Amazing Lego Sets</h1>
-<div class="row">
-    <div class="row m-1 p-1">
-        <div class="col">
-            <vc:category />
+
+<div class="container">
+    <br/>
+    <br/>
+        <div class="text-center">
+            <h1 style="font-weight: bold">Browse Our Amazing Sets!</h1>
+        </div>
+    <!-- Categories -->
+    <div class="row">
+        <div class="col-md-4">
+            <vc:category/>
         </div>
     </div>
 
-    <div class="container col">
-        @foreach(Product p in Model.Products)
+    <!-- Products -->
+    <div class="row">
+        @foreach (Product p in Model.Products)
         {
-            <partial name="ProductSummary" model="p" />
+            <div class="col-md-4">
+                <partial name="ProductSummary" model="p"/>
+            </div>
         }
     </div>
 </div>
 
+
 <div page-model="@Model.PaginationInfo" page-action="Products" page-classes-enabled="true"
-     page-class="btn" page-class-normal="btn-outline-dark" page-class-selected="btn-primary"
+     page-class="btn" page-class-normal="btn-outline-dark" page-class-selected="btn-dark"
      page-url-category="@Model.currentCategory" class="btn-group m-1"></div>

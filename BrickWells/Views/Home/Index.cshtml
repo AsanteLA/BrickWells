@@ -1,8 +1,8 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
-    var customer = ViewBag.Customer as Customer;
-    var order = ViewBag.Orders as Order;
-    var transaction = ViewBag.TransactionId as LineItem;
+    // var customer = ViewBag.Customer as Customer;
+    // var order = ViewBag.Orders as Order;
+    // var transaction = ViewBag.TransactionId as LineItem;
     var recommendedProducts = ViewBag.RecommendedProducts as List<Product>;
 }
 @model BrickListViewModel;
@@ -28,7 +28,6 @@
   
     <div class="text-center">
         <h1 style="font-weight: bold">Best Sellers:</h1>
-        <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
     </div>
     
     <div>
@@ -38,7 +37,7 @@
             <div class="row">
                 @foreach (var recProduct in recommendedProducts)
                 {
-                    <div class="card  col-3 card-style" style="width: 18rem;">
+                    <div class="card  col-4 card-style" style="width: 18rem;">
                         <div>
                             <img class="card-img-top" style="height: 10rem;" src="@recProduct.ImgLink" alt="@recProduct.Name">
                             <h4 class="card-title">@recProduct.Name</h4>
@@ -59,41 +58,26 @@
         <div class="row">
             @foreach (Product p in Model.Products)
             {
-                <div class="col-3">
+                <div class="col-4">
                     <partial name="ProductSummary" model="p"/>
                 </div>
             }
         </div>
     </div>
-    @* <div> *@
-    @*     <h1 class="text-center">Popular Products:</h1> *@
-    @*     @foreach (Product p in Model.Products) *@
-    @*     { *@
-    @*         <partial name="ProductSummary" model="p"/> *@
-    @*     } *@
+
+    @* <div class="container-fluid"> *@
+    @*     <h1>Customer</h1> *@
+    @*     <p>@customer.FirstName</p> *@
+    @*     <p>@customer.LastName</p> *@
+    @*     <p>@customer.Age</p> *@
     @* </div> *@
-    
-    @* <div class="container-fluid mt-3"> *@
-    @*     <h1 class="text-center">Popular Products:</h1> *@
-    @*     @foreach (Product p in Model.Products) *@
-    @*     { *@
-    @*         <partial name="ProductSummary" model="p"/> *@
-    @*     } *@
+    @* *@
+    @* *@
+    @* <div class="container-fluid"> *@
+    @*     <h1>Order</h1> *@
+    @*     <p>@order.Date</p> *@
+    @*     <p>@order.TransactionId</p> *@
+    @* *@
     @* </div> *@
-    
-    <div class="container-fluid">
-        <h1>Customer</h1>
-        <p>@customer.FirstName</p>
-        <p>@customer.LastName</p>
-        <p>@customer.Age</p>
-    </div>
-    
-    
-    <div class="container-fluid">
-        <h1>Order</h1>
-        <p>@order.Date</p>
-        <p>@order.TransactionId</p>
-    
-    </div>
 </div>
 
