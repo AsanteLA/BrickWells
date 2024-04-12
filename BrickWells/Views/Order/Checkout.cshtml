@@ -8,53 +8,55 @@
 @using Microsoft.AspNetCore.Mvc.TagHelpers
 @model Order
 
-
-<h2>Check out now</h2>
-<p>please enter your details and we will ship your sets right away to you!</p>
-
-<form asp-action="Checkout" method="post">
-    <input type="hidden" id="Date" asp-for="Date" value="@DateTime.Now.ToString("MM/dd/yy")"/>
-    <input type="hidden" id="DayOfWeek" asp-for="DayOfWeek" value="@dayOfWeekAbbreviation"/>
-    <input type="hidden" id="HourOfDay" asp-for="Time"  value="@hourOfDay"/>
-    
-    <label asp-for="EntryMode">Entry Mode:</label><br />
-    <select asp-for="EntryMode">
-        <option value="Tap">Tap</option>
-        <option value="CVC">CVC</option>
-        <option value="PIN">PIN</option>
-    </select>
-    <input type="hidden" asp-for="Amount" value=""/>
-    <br/><br/>
-    <input type="hidden" asp-for="TypeOfTransaction" value="Online"/>
-    <label asp-for="CountryOfTransaction">Country:</label><br/>
-    <input asp-for="CountryOfTransaction"/>
-    <br/><br/>
-    <label asp-for="ShippingAddress">Shipping to Country:</label><br/>
-    <input asp-for="ShippingAddress"/>
-    <br/><br/>
-    <label asp-for="Bank">Entry Mode:</label><br />
-    <select asp-for="Bank">
-        <option value="Metro">Metro</option>
-        <option value="Barclays">Barclays</option>
-        <option value="Monzo">Monzo</option>
-        <option value="Lloyds">Lloyds</option>
-        <option value="RBS">RBS</option>
-        <option value="HSBC">HSBC</option>
-        <option value="Halifax">Halifax</option>
-    </select>
-    <br/><br/>
-    <label asp-for="TypeOfCard">Card Type:</label><br />
-    <select asp-for="TypeOfCard">
-        <option value="Visa">Visa</option>
-        <option value="Mastercard">MasterCard</option>
-    </select>
-    
-    
-    <div class="text-center">
-        <input class="btn btn-primary" type="submit" 
-               value="Complete Order" />
+    <div class="container box">
+        <h2>Check out now</h2>
+        <p>please enter your details and we will ship your sets right away to you!</p>
+        
+        <form asp-action="Checkout" method="post">
+            <input type="hidden" id="Date" asp-for="Date" value="@DateTime.Now.ToString("MM/dd/yy")"/>
+            <input type="hidden" id="DayOfWeek" asp-for="DayOfWeek" value="@dayOfWeekAbbreviation"/>
+            <input type="hidden" id="HourOfDay" asp-for="Time"  value="@hourOfDay"/>
+            
+            <label asp-for="EntryMode">Entry Mode:</label><br />
+            <select asp-for="EntryMode">
+                <option value="Tap">Tap</option>
+                <option value="CVC">CVC</option>
+                <option value="PIN">PIN</option>
+            </select>
+            <input type="hidden" asp-for="Amount" value=""/>
+            <br/><br/>
+            <input type="hidden" asp-for="TypeOfTransaction" value="Online"/>
+            <label asp-for="CountryOfTransaction">Country:</label><br/>
+            <input asp-for="CountryOfTransaction"/>
+            <br/><br/>
+            <label asp-for="ShippingAddress">Shipping to Country:</label><br/>
+            <input asp-for="ShippingAddress"/>
+            <br/><br/>
+            <label asp-for="Bank">Entry Mode:</label><br />
+            <select asp-for="Bank">
+                <option value="Metro">Metro</option>
+                <option value="Barclays">Barclays</option>
+                <option value="Monzo">Monzo</option>
+                <option value="Lloyds">Lloyds</option>
+                <option value="RBS">RBS</option>
+                <option value="HSBC">HSBC</option>
+                <option value="Halifax">Halifax</option>
+            </select>
+            <br/><br/>
+            <label asp-for="TypeOfCard">Card Type:</label><br />
+            <select asp-for="TypeOfCard">
+                <option value="Visa">Visa</option>
+                <option value="Mastercard">MasterCard</option>
+            </select>
+            
+            
+            <div class="text-center">
+                <input class="btn btn-primary" type="submit" 
+                       value="Complete Order" />
+            </div>
+            
+            <div asp-validation-summary="All"></div>
+            
+        </form>
     </div>
-    
-    <div asp-validation-summary="All"></div>
-    
-</form>
+
