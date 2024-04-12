@@ -29,17 +29,20 @@
 
             <div class="row">
                 @foreach (var recProduct in recommendedProducts as List<Product>)
-                {
-                    <div class="card  col-3 card-style" style="height: 22rem; width: 12rem;">
-                        <div>
-                            <img class="card-img-top" style="height: 6rem;" src="@recProduct.ImgLink" alt="@recProduct.Name">
-                            <h4 class="card-title">@recProduct.Name</h4>
-                            <p class="card-text">@recProduct.Category</p>
-                            <h4 class="card-text">$@recProduct.Price</h4>
-                            <button class="btn-primary-cart" type="submit">Add to Cart.</button>
-                        </div>
+                {                
 
+                    <div class="card  col-3 card-style" style="height: 22rem; width: 12rem;">
+                        <a href="@Url.Action("ProductDetails", "Home", new { id = recProduct.ProductId })" class="card-link">
+                            <div>
+                                <img class="card-img-top" style="height: 6rem;" src="@recProduct.ImgLink" alt="@recProduct.Name">
+                                <h4 class="card-title">@recProduct.Name</h4>
+                                <p class="card-text">@recProduct.Category</p>
+                                <h4 class="card-text">$@recProduct.Price</h4>
+                                <button class="btn-primary-cart" type="submit">Add to Cart.</button>
+                            </div>
+                        </a>
                     </div>
+
                 }
             </div>
         </div>

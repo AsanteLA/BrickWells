@@ -1,8 +1,8 @@
 @model ProductListViewModel
 
 
-<table class="table table-success table-striped">
-    <thead class="fw-bold table-light text-center">
+<table class="table table-striped">
+    <thead class="fw-bold table-dark text-center">
     <tr>
         <td>Product ID</td>
         <td>Name</td>
@@ -33,12 +33,13 @@
             @* <td>@prod.Description</td> *@
             <td>@prod.Category</td>
             
-            <td><a class="btn btn-info" asp-controller="Admin" asp-action="ProductDetails" asp-route-id="@prod.ProductId">Details</a></td>
+            <td><a class="btn-primary-light-blue" asp-controller="Admin" asp-action="ProductDetails" asp-route-id="@prod.ProductId">Details</a></td>
             @* <td><a class="btn btn-danger" asp-controller="Admin" asp-action="PDelete" asp-route-id="@prod.ProductId">Delete</a></td> *@
         </tr>
         </tbody>
     }
 </table>
-
-<div page-model="@Model.PaginationInfo" page-action="ProductList" page-classes-enabled="true" page-class="btn" 
-     page-class-normal="btn-outline-dark" page-class-selected="btn-primary" class="btn-group pull-right m-1"></div>
+<div class="text-center">
+    <div page-model="@Model.PaginationInfo" page-action="ProductList" page-classes-enabled="true" page-class="btn" 
+         page-class-normal="btn-outline-dark" page-class-selected="btn" class="btn-group pull-right m-1"></div>
+</div>
